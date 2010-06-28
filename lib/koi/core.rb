@@ -20,7 +20,7 @@ module Koi
       stack               = []  # An array as our stack
       instruction_pointer = 0   # A pointer to the next instruction to be executed
       
-      while true
+      while (instruction_pointer < opcodes.size)
         raise PointerError, "Instruction Pointer ('#{instruction_pointer}') not valid" unless(instruction_pointer.is_a?(Integer))
       
         instruction = opcodes[instruction_pointer]
