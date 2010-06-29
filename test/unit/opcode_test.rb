@@ -6,14 +6,14 @@ class OpcodeTest < Test::Unit::TestCase
 
   test "invalid opcode should raise RuntimeError" do
     assert_raises RuntimeError do
-      VM.debug_run [
+      VM.new.debug_run [
         101
       ]
     end
   end
 
   test "no_op should do nothing" do
-    state = VM.debug_run [
+    state = VM.new.debug_run [
       NO_OP
     ]
     assert_nil state[:registers][REGA]
@@ -23,7 +23,7 @@ class OpcodeTest < Test::Unit::TestCase
   end
   
   test "NO_OP should only skip one instruction" do
-    state = VM.debug_run [
+    state = VM.new.debug_run [
       NO_OP,
       SET, REGA, "Test"
     ]
@@ -34,7 +34,7 @@ class OpcodeTest < Test::Unit::TestCase
   end
   
   test "should SET REGA" do
-    state = VM.debug_run [
+    state = VM.new.debug_run [
       SET, REGA, "test"
     ]
     assert_equal "test", state[:registers][REGA]
@@ -45,14 +45,14 @@ class OpcodeTest < Test::Unit::TestCase
   
   test "SET REGA without operand should raise error" do
     assert_raises RuntimeError do
-      VM.debug_run [
+      VM.new.debug_run [
         SET, REGA
       ]
     end
   end
   
   test "should SET REGB" do
-    state = VM.debug_run [
+    state = VM.new.debug_run [
       SET, REGB, "test"
     ]
     assert_equal "test", state[:registers][REGB]
@@ -63,14 +63,14 @@ class OpcodeTest < Test::Unit::TestCase
   
   test "SET REGB without operand should raise error" do
     assert_raises RuntimeError do
-      VM.debug_run [
+      VM.new.debug_run [
         SET, REGB
       ]
     end
   end
   
   test "SWAP REGA and REGB" do
-    state = VM.debug_run [
+    state = VM.new.debug_run [
       SET, REGA, "Hello",
       SET, REGB, "world!",
       SWAP, REGA, REGB
@@ -82,7 +82,7 @@ class OpcodeTest < Test::Unit::TestCase
   
   test "SWAP without operands should raise RuntimeError" do
     assert_raises RuntimeError do
-      VM.debug_run [
+      VM.new.debug_run [
         SET, REGA, "Test",
         SWAP
       ]
@@ -90,7 +90,7 @@ class OpcodeTest < Test::Unit::TestCase
   end
   
   test "should PUSH REGA onto stack" do
-    state = VM.debug_run [
+    state = VM.new.debug_run [
       SET,  REGA, "test",
       PUSH, REGA
     ]
@@ -102,7 +102,7 @@ class OpcodeTest < Test::Unit::TestCase
   end
   
   test "should PUSH REGB onto stack" do
-    state = VM.debug_run [
+    state = VM.new.debug_run [
       SET,  REGB, "test",
       PUSH, REGB
     ]
@@ -115,7 +115,7 @@ class OpcodeTest < Test::Unit::TestCase
   
   test "PUSH without operand should raise RuntimeError" do
     assert_raises RuntimeError do
-      VM.debug_run [
+      VM.new.debug_run [
         SET, REGA, "test",
         PUSH
       ]
@@ -123,7 +123,7 @@ class OpcodeTest < Test::Unit::TestCase
   end
   
   test "should POP stack onto REGA" do
-    state = VM.debug_run [
+    state = VM.new.debug_run [
       SET,  REGB, "test",
       PUSH, REGB,
       POP,  REGA
@@ -135,7 +135,7 @@ class OpcodeTest < Test::Unit::TestCase
   end
   
   test "should POP stack onto REGB" do
-    state = VM.debug_run [
+    state = VM.new.debug_run [
       SET,  REGA, "test",
       PUSH, REGA,
       POP,  REGB
@@ -148,7 +148,7 @@ class OpcodeTest < Test::Unit::TestCase
   
   test "POP without operand should raise RuntimError" do
     assert_raises RuntimeError do
-      VM.debug_run [
+      VM.new.debug_run [
         SET,  REGA, "test",
         PUSH, REGA,
         POP
@@ -157,7 +157,7 @@ class OpcodeTest < Test::Unit::TestCase
   end
   
   test "should PEEK stack onto REGA" do
-    state = VM.debug_run [
+    state = VM.new.debug_run [
       SET,  REGB, "test",
       PUSH, REGB,
       PEEK, REGA
@@ -169,7 +169,7 @@ class OpcodeTest < Test::Unit::TestCase
   end
   
   test "should PEEK stack onto REGB" do
-    state = VM.debug_run [
+    state = VM.new.debug_run [
       SET,  REGA, "test",
       PUSH, REGA,
       PEEK, REGB
@@ -182,7 +182,7 @@ class OpcodeTest < Test::Unit::TestCase
   
   test "PEEK without operand should raise RuntimError" do
     assert_raises RuntimeError do
-      VM.debug_run [
+      VM.new.debug_run [
         SET,  REGA, "test",
         PUSH, REGA,
         PEEK
@@ -191,7 +191,7 @@ class OpcodeTest < Test::Unit::TestCase
   end
   
   test "STKSIZE REGA should populate REGA with current stack size" do
-    state = VM.debug_run [
+    state = VM.new.debug_run [
       SET,     REGA, "test",
       PUSH,    REGA,
       PUSH,    REGA,
@@ -204,7 +204,7 @@ class OpcodeTest < Test::Unit::TestCase
   end
   
   test "STKSIZE REGB should populate REGB with current stack size" do
-    state = VM.debug_run [
+    state = VM.new.debug_run [
       SET,     REGB, "test",
       PUSH,    REGB,
       PUSH,    REGB,
@@ -218,7 +218,7 @@ class OpcodeTest < Test::Unit::TestCase
   
   test "STKSIZE without operand should raise RuntimeError" do
     assert_raises RuntimeError do
-      VM.debug_run [
+      VM.new.debug_run [
         STKSIZE
       ]
     end
@@ -228,7 +228,7 @@ class OpcodeTest < Test::Unit::TestCase
     old_stdout = $stdout
     tmp_stdout = StringIO.new
     $stdout = tmp_stdout
-    VM.debug_run [
+    VM.new.debug_run [
       SET, REGA, "Test",
       PRINT, REGA
     ]
@@ -238,14 +238,14 @@ class OpcodeTest < Test::Unit::TestCase
   
   test "PRINT without operand should raise RuntimeError" do
     assert_raises RuntimeError do
-      VM.debug_run [
+      VM.new.debug_run [
         PRINT
       ]
     end
   end
   
   test "JUMP should set instruction_pointer to value in REGA" do
-    state = VM.debug_run [
+    state = VM.new.debug_run [
       SET, REGA, 9,
       JUMP, REGA,
       SET, REGA, 1,
@@ -259,7 +259,7 @@ class OpcodeTest < Test::Unit::TestCase
   end
   
   test "JUMP should set instruction_pointer to value in REGB" do
-    state = VM.debug_run [
+    state = VM.new.debug_run [
       SET, REGB, 9,
       JUMP, REGB,
       SET, REGB, 1,
@@ -274,14 +274,14 @@ class OpcodeTest < Test::Unit::TestCase
   
   test "JUMP without operand should raise RuntimeError" do
     assert_raises RuntimeError do
-      VM.debug_run [
+      VM.new.debug_run [
         JUMP
       ]
     end
   end
   
   test "JUMP_IF should set instruction_pointer to value in REGA" do
-    state = VM.debug_run [
+    state = VM.new.debug_run [
       SET, REGA, 11,
       PUSH, REGA,
       JUMP_IF, REGA,
@@ -296,7 +296,7 @@ class OpcodeTest < Test::Unit::TestCase
   end
   
   test "JUMP_IF should not set instruction_pointer to value in REGA" do
-    state = VM.debug_run [
+    state = VM.new.debug_run [
       SET, REGA, 14,
       SET, REGB, 0,
       PUSH, REGB,
@@ -313,14 +313,14 @@ class OpcodeTest < Test::Unit::TestCase
   
   test "JUMP_IF without operand should raise RuntimeError" do
     assert_raises RuntimeError do
-      VM.debug_run [
+      VM.new.debug_run [
         JUMP_IF
       ]
     end
   end
   
   test "JUMP_UNLESS should set instruction_pointer to value in REGA" do
-    state = VM.debug_run [
+    state = VM.new.debug_run [
       SET, REGA, 14,
       SET, REGB, 0,
       PUSH, REGB,
@@ -336,7 +336,7 @@ class OpcodeTest < Test::Unit::TestCase
   end
   
   test "JUMP_UNLESS should not set instruction_pointer to value in REGA" do
-    state = VM.debug_run [
+    state = VM.new.debug_run [
       SET, REGA, 11,
       PUSH, REGA,
       JUMP_UNLESS, REGA,
@@ -352,14 +352,14 @@ class OpcodeTest < Test::Unit::TestCase
   
   test "JUMP_UNLESS without operand should raise RuntimeError" do
     assert_raises RuntimeError do
-      VM.debug_run [
+      VM.new.debug_run [
         JUMP_UNLESS
       ]
     end
   end
   
   test "ADD should add top two items on the stack" do
-    state = VM.debug_run [
+    state = VM.new.debug_run [
       SET, REGA, 2,
       PUSH, REGA,
       PUSH, REGA,
@@ -374,7 +374,7 @@ class OpcodeTest < Test::Unit::TestCase
   
   test "ADD should raise RuntimeError if only 1 item is on the stack" do
     assert_raises RuntimeError do
-      VM.debug_run [
+      VM.new.debug_run [
         SET, REGA, 2,
         PUSH, REGA,
         ADD
@@ -383,7 +383,7 @@ class OpcodeTest < Test::Unit::TestCase
   end
   
   test "SUBTRACT should subtract stack[-1] from stack[-2]" do
-    state = VM.debug_run [
+    state = VM.new.debug_run [
       SET, REGA, 2,
       PUSH, REGA,
       SET, REGA, 1,
@@ -398,7 +398,7 @@ class OpcodeTest < Test::Unit::TestCase
   end
   
   test "SUBTRACT should subtract stack[-1] from stack[-2] (reverse)" do
-    state = VM.debug_run [
+    state = VM.new.debug_run [
       SET, REGA, 1,
       PUSH, REGA,
       SET, REGA, 2,
@@ -414,7 +414,7 @@ class OpcodeTest < Test::Unit::TestCase
   
   test "SUBTRACT should raise RuntimeError if only 1 item is on the stack" do
     assert_raises RuntimeError do
-      VM.debug_run [
+      VM.new.debug_run [
         SET, REGA, 2,
         PUSH, REGA,
         ADD
@@ -423,7 +423,7 @@ class OpcodeTest < Test::Unit::TestCase
   end
   
   test "MULTIPLY should multiply the top two items on the stack" do
-    state = VM.debug_run [
+    state = VM.new.debug_run [
       SET, REGA, 4,
       PUSH, REGA,
       SET, REGA, 2,
@@ -439,7 +439,7 @@ class OpcodeTest < Test::Unit::TestCase
   
   test "MULTIPLY should raise RuntimeError if only 1 item is on the stack" do
     assert_raises RuntimeError do
-      VM.debug_run [
+      VM.new.debug_run [
         SET, REGA, 2,
         PUSH, REGA,
         MULTIPLY
@@ -448,7 +448,7 @@ class OpcodeTest < Test::Unit::TestCase
   end
   
   test "DIVIDE should divide stack[-2] by stack [-1]" do
-    state = VM.debug_run [
+    state = VM.new.debug_run [
       SET, REGA, 10,
       PUSH, REGA,
       SET, REGA, 2,
@@ -463,7 +463,7 @@ class OpcodeTest < Test::Unit::TestCase
   end
   
   test "DIVIDE should divide stack[-2] by stack [-1] (reverse)" do
-    state = VM.debug_run [
+    state = VM.new.debug_run [
       SET, REGA, 2,
       PUSH, REGA,
       SET, REGA, 10,
@@ -479,7 +479,7 @@ class OpcodeTest < Test::Unit::TestCase
   
   test "DIVIDE should raise RuntimeError if only 1 item is on the stack" do
     assert_raises RuntimeError do
-      VM.debug_run [
+      VM.new.debug_run [
         SET, REGA, 2,
         PUSH, REGA,
         DIVIDE
