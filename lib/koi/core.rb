@@ -30,6 +30,7 @@ module Koi
         case opcodes[instruction_pointer]
         when NO_OP
           instruction_pointer += 1
+          next
         when PUSH
           stack.push registers[operand1]
           instruction_pointer += 1

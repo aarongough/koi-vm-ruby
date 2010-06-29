@@ -14,6 +14,17 @@ class OpcodeTest < Test::Unit::TestCase
     assert_equal 0, state[:stack].size
   end
   
+  test "NO_OP should only skip one instruction" do
+    state = VM.debug_run [
+      NO_OP,
+      SET, REGA, "Test"
+    ]
+    assert_equal "Test", state[:registers][REGA]
+    assert_nil state[:registers][REGB]
+    assert_nil state[:registers][DEBG]
+    assert_equal 0, state[:stack].size
+  end
+  
   test "should SET REGA" do
     state = VM.debug_run [
       SET, REGA, "test"
