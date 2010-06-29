@@ -274,24 +274,25 @@ class OpcodeTest < Test::Unit::TestCase
   
   test "JUMP_IF should set instruction_pointer to value in REGA" do
     state = VM.debug_run [
-      SET, REGA, 13,
-      SET, REGB, 1,
-      JUMP_IF, REGA, REGB,
+      SET, REGA, 11,
+      PUSH, REGA,
+      JUMP_IF, REGA,
       SET, REGA, 1,
       NO_OP,
       NO_OP
     ]
-    assert_equal 13, state[:registers][REGA]
-    assert_equal 1, state[:registers][REGB]
+    assert_equal 11, state[:registers][REGA]
+    assert_nil state[:registers][REGB]
     assert_nil state[:registers][DEBG]
     assert_equal 0, state[:stack].size
   end
   
   test "JUMP_IF should not set instruction_pointer to value in REGA" do
     state = VM.debug_run [
-      SET, REGA, 13,
+      SET, REGA, 14,
       SET, REGB, 0,
-      JUMP_IF, REGA, REGB,
+      PUSH, REGB,
+      JUMP_IF, REGA,
       SET, REGA, 1,
       NO_OP,
       NO_OP
@@ -312,14 +313,15 @@ class OpcodeTest < Test::Unit::TestCase
   
   test "JUMP_UNLESS should set instruction_pointer to value in REGA" do
     state = VM.debug_run [
-      SET, REGA, 13,
+      SET, REGA, 14,
       SET, REGB, 0,
-      JUMP_UNLESS, REGA, REGB,
+      PUSH, REGB,
+      JUMP_UNLESS, REGA,
       SET, REGA, 1,
       NO_OP,
       NO_OP
     ]
-    assert_equal 13, state[:registers][REGA]
+    assert_equal 14, state[:registers][REGA]
     assert_equal 0, state[:registers][REGB]
     assert_nil state[:registers][DEBG]
     assert_equal 0, state[:stack].size
@@ -327,15 +329,15 @@ class OpcodeTest < Test::Unit::TestCase
   
   test "JUMP_UNLESS should not set instruction_pointer to value in REGA" do
     state = VM.debug_run [
-      SET, REGA, 13,
-      SET, REGB, 1,
-      JUMP_UNLESS, REGA, REGB,
+      SET, REGA, 11,
+      PUSH, REGA,
+      JUMP_UNLESS, REGA,
       SET, REGA, 1,
       NO_OP,
       NO_OP
     ]
     assert_equal 1, state[:registers][REGA]
-    assert_equal 1, state[:registers][REGB]
+    assert_nil state[:registers][REGB]
     assert_nil state[:registers][DEBG]
     assert_equal 0, state[:stack].size
   end
