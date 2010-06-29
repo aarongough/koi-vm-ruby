@@ -19,7 +19,7 @@ module Koi
   DEBG = DEBUG_REGISTER = :DEBUG_REGISTER
 
   class VM
-    def self.run(opcodes, debug = false)
+    def run(opcodes, debug = false)
       # Initialize the VM
       registers           = {}  # A hashtable to store our registers
       stack               = []  # An array as our stack
@@ -83,7 +83,7 @@ module Koi
       return {:registers => registers, :stack => stack, :instruction_pointer => instruction_pointer } if(debug == true)
     end
     
-    def self.debug_run(opcodes)
+    def debug_run(opcodes)
       return self.run(opcodes, true)
     end
   end
