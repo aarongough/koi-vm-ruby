@@ -4,6 +4,14 @@ class OpcodeTest < Test::Unit::TestCase
 
   include Koi
 
+  test "invalid opcode should raise RuntimeError" do
+    assert_raises RuntimeError do
+      VM.debug_run [
+        101
+      ]
+    end
+  end
+
   test "no_op should do nothing" do
     state = VM.debug_run [
       NO_OP
