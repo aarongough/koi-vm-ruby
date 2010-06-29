@@ -1,13 +1,16 @@
 module Koi
-  NO_OP     = 0   # Do nothing
-  PUSH      = 1   # Push the content of the register specified onto the stack
-  POP       = 2   # Copy the top item on the stack into the specified register, then delete it from the stack
-  PEEK      = 3   # Copy the top item on the stack into the specified register
-  STKSIZE   = 4   # Set the specified register to equal the number of items on the stack
-  SET       = 5   # Set the specified register with the value specified   
-  PRINT     = 6   # Print the contents of the specified register to STDOUT
-  GOTO      = 7   # Set the instruction pointer to the value in the specified register
-  EXIT      = 8   # Exit
+  NO_OP       = 0   # Do nothing
+  PUSH        = 1   # Push the content of the register specified onto the stack
+  POP         = 2   # Copy the top item on the stack into the specified register, then delete it from the stack
+  PEEK        = 3   # Copy the top item on the stack into the specified register
+  STKSIZE     = 4   # Set the specified register to equal the number of items on the stack
+  SET         = 5   # Set the specified register with the value specified   
+  SWAP        = 6   # Swap the content of the two specified registers
+  PRINT       = 7   # Print the contents of the specified register to STDOUT
+  JUMP        = 8   # Set the instruction pointer to the value in the specified register
+  JUMP_IF     = 9   # Set the instruction pointer to the value in the first register if the second register is greater than zero
+  JUMP_UNLESS = 10  # Set the instruction pointer to the value in the first register unless the second register is greater than zero
+  EXIT        = 11  # Exit
   
   REGA = REGISTER_A     = :REGISTER_A
   REGB = REGISTER_B     = :REGISTER_B
@@ -46,12 +49,27 @@ module Koi
         when SET
           registers[operand1] = operand2
           instruction_pointer += 2
+        when SWAP  
+          tmp = registers[operand1]
+          registers[operand1] = registers[operand2]
+          registers[operand2] = tmp
+          instruction_pointer += 2
         when PRINT
           puts registers[operand1]
           instruction_pointer += 1
-        when GOTO
+        when JUMP
           instruction_pointer = registers[operand1]
           next
+        when JUMP_IF
+          if(registers[operand2] > 0)
+            instruction_pointer = registers[operand1] 
+            next
+          end
+        when JUMP_UNLESS
+          unless(registers[operand2] > 0)
+            instruction_pointer = registers[operand1]
+            next
+          end
         when EXIT
           return
         end
