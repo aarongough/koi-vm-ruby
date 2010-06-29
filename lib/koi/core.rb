@@ -8,8 +8,8 @@ module Koi
   SWAP        = 6   # Swap the content of the two specified registers
   PRINT       = 7   # Print the contents of the specified register to STDOUT
   JUMP        = 8   # Set the instruction pointer to the value in the specified register
-  JUMP_IF     = 9   # Set the instruction pointer to the value in the first register if the second register is greater than zero
-  JUMP_UNLESS = 10  # Set the instruction pointer to the value in the first register unless the second register is greater than zero
+  JUMP_IF     = 9   # Set the instruction pointer to the value in the specified register if the first value on the stack is greater than zero
+  JUMP_UNLESS = 10  # Set the instruction pointer to the value in the specified register unless the first value on the stack is greater then zero
   EXIT        = 11  # Exit
   
   REGA = REGISTER_A     = :REGISTER_A
@@ -63,12 +63,12 @@ module Koi
           instruction_pointer = registers[operand1]
           next
         when JUMP_IF
-          if(registers[operand2] > 0)
+          if(stack.pop > 0)
             instruction_pointer = registers[operand1] 
             next
           end
         when JUMP_UNLESS
-          unless(registers[operand2] > 0)
+          unless(stack.pop > 0)
             instruction_pointer = registers[operand1]
             next
           end
