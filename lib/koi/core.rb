@@ -28,51 +28,61 @@ module Koi
       while (instruction_pointer < opcodes.size)
         raise PointerError, "Instruction Pointer ('#{instruction_pointer}') not valid" unless(instruction_pointer.is_a?(Integer))
       
-        instruction = opcodes[instruction_pointer]
         operand1    = opcodes[instruction_pointer + 1]
         operand2    = opcodes[instruction_pointer + 2]
       
         case opcodes[instruction_pointer]
-        when NO_OP
+          when NO_OP
           instruction_pointer += 1
           next
-        when PUSH
+          
+          when PUSH
           stack.push registers[operand1]
           instruction_pointer += 1
-        when POP
+          
+          when POP
           registers[operand1] = stack.pop
           instruction_pointer += 1
-        when PEEK
+          
+          when PEEK
           registers[operand1] = stack[-1]
           instruction_pointer += 1
-        when STKSIZE
+          
+          when STKSIZE
           registers[operand1] = stack.size
           instruction_pointer += 1
-        when SET
+          
+          when SET
           registers[operand1] = operand2
           instruction_pointer += 2
-        when SWAP  
+          
+          when SWAP  
           tmp = registers[operand1]
           registers[operand1] = registers[operand2]
           registers[operand2] = tmp
           instruction_pointer += 2
-        when PRINT
+          
+          when PRINT
           puts registers[operand1]
           instruction_pointer += 1
-        when JUMP
+          
+          when JUMP
           instruction_pointer = registers[operand1]
           next
-        when JUMP_IF
+          
+          when JUMP_IF
           if(stack.pop > 0)
             instruction_pointer = registers[operand1] 
             next
           end
-        when JUMP_UNLESS
+          
+          when JUMP_UNLESS
           unless(stack.pop > 0)
             instruction_pointer = registers[operand1]
             next
           end
-        when EXIT
+          
+          when EXIT
           return
         end
         
