@@ -358,4 +358,133 @@ class OpcodeTest < Test::Unit::TestCase
     end
   end
   
+  test "ADD should add top two items on the stack" do
+    state = VM.debug_run [
+      SET, REGA, 2,
+      PUSH, REGA,
+      PUSH, REGA,
+      ADD
+    ]
+    assert_equal 2, state[:registers][REGA]
+    assert_nil state[:registers][REGB]
+    assert_nil state[:registers][DEBG]
+    assert_equal 1, state[:stack].size
+    assert_equal 4, state[:stack].pop
+  end
+  
+  test "ADD should raise RuntimeError if only 1 item is on the stack" do
+    assert_raises RuntimeError do
+      VM.debug_run [
+        SET, REGA, 2,
+        PUSH, REGA,
+        ADD
+      ]
+    end
+  end
+  
+  test "SUBTRACT should subtract stack[-1] from stack[-2]" do
+    state = VM.debug_run [
+      SET, REGA, 2,
+      PUSH, REGA,
+      SET, REGA, 1,
+      PUSH, REGA,
+      ADD
+    ]
+    assert_equal 1, state[:registers][REGA]
+    assert_nil state[:registers][REGB]
+    assert_nil state[:registers][DEBG]
+    assert_equal 1, state[:stack].size
+    assert_equal 1, state[:stack].pop
+  end
+  
+  test "SUBTRACT should subtract stack[-1] from stack[-2] (reverse)" do
+    state = VM.debug_run [
+      SET, REGA, 1,
+      PUSH, REGA,
+      SET, REGA, 2,
+      PUSH, REGA,
+      ADD
+    ]
+    assert_equal 2, state[:registers][REGA]
+    assert_nil state[:registers][REGB]
+    assert_nil state[:registers][DEBG]
+    assert_equal 1, state[:stack].size
+    assert_equal -1, state[:stack].pop
+  end
+  
+  test "SUBTRACT should raise RuntimeError if only 1 item is on the stack" do
+    assert_raises RuntimeError do
+      VM.debug_run [
+        SET, REGA, 2,
+        PUSH, REGA,
+        ADD
+      ]
+    end
+  end
+  
+  test "MULTIPLY should multiply the top two items on the stack" do
+    state = VM.debug_run [
+      SET, REGA, 4,
+      PUSH, REGA,
+      SET, REGA, 2,
+      PUSH, REGA,
+      MULTIPLY
+    ]
+    assert_equal 2, state[:registers][REGA]
+    assert_nil state[:registers][REGB]
+    assert_nil state[:registers][DEBG]
+    assert_equal 1, state[:stack].size
+    assert_equal 8, state[:stack].pop
+  end
+  
+  test "MULTIPLY should raise RuntimeError if only 1 item is on the stack" do
+    assert_raises RuntimeError do
+      VM.debug_run [
+        SET, REGA, 2,
+        PUSH, REGA,
+        MULTIPLY
+      ]
+    end
+  end
+  
+  test "DIVIDE should divide stack[-2] by stack [-1]" do
+    state = VM.debug_run [
+      SET, REGA, 10,
+      PUSH, REGA,
+      SET, REGA, 2,
+      PUSH, REGA,
+      DIVIDE
+    ]
+    assert_equal 2, state[:registers][REGA]
+    assert_nil state[:registers][REGB]
+    assert_nil state[:registers][DEBG]
+    assert_equal 1, state[:stack].size
+    assert_equal 5, state[:stack].pop
+  end
+  
+  test "DIVIDE should divide stack[-2] by stack [-1] (reverse)" do
+    state = VM.debug_run [
+      SET, REGA, 2,
+      PUSH, REGA,
+      SET, REGA, 10,
+      PUSH, REGA,
+      DIVIDE
+    ]
+    assert_equal 10, state[:registers][REGA]
+    assert_nil state[:registers][REGB]
+    assert_nil state[:registers][DEBG]
+    assert_equal 1, state[:stack].size
+    assert_equal 0.2, state[:stack].pop
+  end
+  
+  test "DIVIDE should raise RuntimeError if only 1 item is on the stack" do
+    assert_raises RuntimeError do
+      VM.debug_run [
+        SET, REGA, 2,
+        PUSH, REGA,
+        DIVIDE
+      ]
+    end
+  end
+  
 end
