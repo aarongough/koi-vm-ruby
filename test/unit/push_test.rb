@@ -14,8 +14,8 @@ class PushTest < Test::Unit::TestCase
     }], state
   end
   
-  test "PUSH without operand should raise RuntimeError" do
-    assert_raises RuntimeError do
+  test "PUSH without operand should raise OperandError" do
+    assert_raises OperandError do
       VM.new.run [
         PUSH
       ]
