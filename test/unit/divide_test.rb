@@ -27,7 +27,7 @@ class DivideTest < Test::Unit::TestCase
       DIVIDE
     ]
     assert_equal [{
-      :stack => [0.2],
+      :stack => [0],
       :instruction_pointer => 1,
     }], state
   end
