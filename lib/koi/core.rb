@@ -19,7 +19,7 @@ module Koi
       while (@state[@state_identifier][:instruction_pointer] < @opcodes.size)
         opcode_name = "opcode" + @opcodes[@state[@state_identifier][:instruction_pointer]].to_s
         if(methods.include?(opcode_name.to_sym))
-          send(opcode_name)
+          break if(send(opcode_name))
         else
           raise RuntimeError, "Invalid opcode: #{@opcodes[@state[@state_identifier][:instruction_pointer]]}"
         end
