@@ -10,13 +10,13 @@ class PushTest < Test::Unit::TestCase
     ]
     assert_equal [{
       :stack => ["Hello"],
-      :instruction_pointer => 1
+      :instruction_pointer => 2
     }], state
   end
   
   test "PUSH without operand should raise RuntimeError" do
     assert_raises RuntimeError do
-      VM.new.debug_run [
+      VM.new.run [
         PUSH
       ]
     end
