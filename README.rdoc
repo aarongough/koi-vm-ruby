@@ -10,7 +10,7 @@ The standard 'Hello world!', Koi style:
   include Koi
   
   VM.new.run [
-    PUSH, "Hello World!",
+    PUSH, "Hello World!\n",
     PRINT
   ]
   
@@ -20,18 +20,22 @@ And an old-school 'Blast off' example:
 
   require 'koi'
   include Koi
-
+  
   VM.new.run [
     PUSH, 11,
     PUSH, 1,
     SUBTRACT,
     DUP,
     PRINT,
+    PUSH, ", ",
+    PRINT,
     DUP, 
-    JUMP_IF, -6,
-    PUSH, "Blast off!",
+    JUMP_IF, -9,
+    PUSH, "Blast off!\n",
     PRINT
   ]
+  
+  #=> 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, Blast off!
   
 === Author & Credits
 
