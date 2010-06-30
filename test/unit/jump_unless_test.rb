@@ -6,15 +6,15 @@ class JumpUnlessTest < Test::Unit::TestCase
   
   test "JUMP_UNLESS should add offset to instruction_pointer if topmost stack item evaluates to false" do
     vm = VM.new([{
-      :stack => [0],
+      :stack => [-1],
       :instruction_pointer => 0
     }])
     state = vm.run [
-      JUMP_UNLESS, "5"
+      JUMP_UNLESS, 5
     ]
     assert_equal [{
       :stack => [],
-      :instruction_pointer => 6
+      :instruction_pointer => 5
     }], state
   end
   
@@ -24,17 +24,41 @@ class JumpUnlessTest < Test::Unit::TestCase
       :instruction_pointer => 0
     }])
     state = vm.run [
-      JUMP_UNLESS, "5"
+      JUMP_UNLESS, 5
     ]
     assert_equal [{
       :stack => [],
-      :instruction_pointer => 1
+      :instruction_pointer => 2
     }], state
   end
   
   test "JUMP_UNLESS should raise StackError if there are no items on the stack" do
     assert_raises StackError do
       VM.new.run [
+        JUMP_UNLESS, 5
+      ]
+    end
+  end
+  
+  test "JUMP_UNLESS should raise OperandError if it is not supplied an operand" do
+    assert_raises OperandError do
+      vm = VM.new([{
+        :stack => [1],
+        :instruction_pointer => 0
+      }])      
+      vm.run [
+        JUMP_UNLESS
+      ]
+    end
+  end
+  
+  test "JUMP_UNLESS should raise OperandError if offset is not an integer" do
+    assert_raises OperandError do
+      vm = VM.new([{
+        :stack => [1],
+        :instruction_pointer => 0
+      }])
+      vm.run [
         JUMP_UNLESS, "5"
       ]
     end
