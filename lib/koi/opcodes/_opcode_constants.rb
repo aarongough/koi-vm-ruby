@@ -11,5 +11,6 @@ module Koi
   SUBTRACT    = 9
   MULTIPLY    = 10
   DIVIDE      = 11
+  DUP         = 12
   EXIT        = 64
 end
