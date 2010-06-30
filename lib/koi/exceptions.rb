@@ -1,0 +1,2 @@
+class StackError < RuntimeError
+end

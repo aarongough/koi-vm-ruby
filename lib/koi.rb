@@ -1,6 +1,7 @@
 require_files = []
 
 require_files << File.join(File.dirname(__FILE__), "koi", "core.rb")
+require_files << File.join(File.dirname(__FILE__), "koi", "exceptions.rb")
 require_files.concat Dir[File.join(File.dirname(__FILE__), 'koi', 'opcodes', '*.rb')]
 
 require_files.each do |file|
