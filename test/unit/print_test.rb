@@ -19,7 +19,7 @@ class PrintTest < Test::Unit::TestCase
       :stack => [],
       :instruction_pointer => 1
     }], state
-    assert_equal "Test\n", tmp_stdout.string
+    assert_equal "Test", tmp_stdout.string
     $stdout = old_stdout
   end
   
