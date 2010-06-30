@@ -1,3 +1,44 @@
 = Koi
 
-Koi is an extremely simple (and likely mostly useless!) Virtual Machine written in Ruby. It was created with learning in mind and is written so that it is easy to understand and play with.
+Koi is an extremely simple Virtual Machine written in Ruby. It was created with learning in mind and is written so that it is easy to understand and play with.
+
+=== Examples
+
+The standard 'Hello world!', Koi style:
+  
+  require 'koi'
+  include Koi
+  
+  VM.new.run [
+    PUSH, "Hello World!\n",
+    PRINT
+  ]
+  
+  #=> Hello world!
+  
+And an old-school 'Blast off' example:
+
+  require 'koi'
+  include Koi
+  
+  VM.new.run [
+    PUSH, 11,
+    PUSH, 1,
+    SUBTRACT,
+    DUP,
+    PRINT,
+    PUSH, ", ",
+    PRINT,
+    DUP, 
+    JUMP_IF, -9,
+    PUSH, "Blast off!\n",
+    PRINT
+  ]
+  
+  #=> 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, Blast off!
+  
+=== Author & Credits
+
+Author:: {Aaron Gough}[mailto:aaron@aarongough.com]
+
+Copyright (c) 2010 {Aaron Gough}[http://thingsaaronmade.com/] ({thingsaaronmade.com}[http://thingsaaronmade.com/]), released under the MIT license
