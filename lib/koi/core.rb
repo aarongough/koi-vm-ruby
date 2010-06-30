@@ -21,7 +21,7 @@ module Koi
         if(methods.include?(opcode_name.to_sym))
           send(opcode_name)
         else
-          raise NameError, "Invalid opcode: #{@opcodes[@state[@state_identifier][:instruction_pointer]]}"
+          raise RuntimeError, "Invalid opcode: #{@opcodes[@state[@state_identifier][:instruction_pointer]]}"
         end
       end
       
