@@ -8,8 +8,10 @@ VM.new.run [
   SUBTRACT,
   DUP,
   PRINT,
+  PUSH, ", ",
+  PRINT,
   DUP, 
-  JUMP_IF, -6,
-  PUSH, "Blast off!",
+  JUMP_IF, -9,
+  PUSH, "Blast off!\n",
   PRINT
 ]
