@@ -11,14 +11,20 @@ module Koi
         }]
       end
       @opcodes = opcodes
+      @state_identifier = 0
     end
   
     def run(opcodes = [])
       @opcodes.concat(opcodes)
-      while (@state[0][:instruction_pointer] < @opcodes.size)
-        
+      while (@state[@state_identifier][:instruction_pointer] < @opcodes.size)
+        opcode_name = "opcode" + @opcodes[@state[@state_identifier][:instruction_pointer]].to_s
+        if(methods.include?(opcode_name.to_sym))
+          send(opcode_name)
+        else
+          raise NameError, "Invalid opcode: #{@opcodes[@state[@state_identifier][:instruction_pointer]]}"
+        end
       end
-    ensure  
+      
       return @state
     end
     
