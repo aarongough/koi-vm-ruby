@@ -10,18 +10,26 @@ class JumpTest < Test::Unit::TestCase
       :instruction_pointer => 0
     }])
     state = vm.run [
-      JUMP, "5"
+      JUMP, 5
     ]
     assert_equal [{
       :stack => [],
-      :instruction_pointer => 6
+      :instruction_pointer => 5
     }], state
   end
   
-  test "JUMP should raise StackError if there are no items on the stack" do
-    assert_raises StackError do
+  test "JUMP should raise OperandError if offset is not an integer" do
+    assert_raises OperandError do
       VM.new.run [
         JUMP, "5"
+      ]
+    end
+  end
+  
+  test "JUMP should raise StackError if no operand is supplied" do
+    assert_raises RuntimeError do
+      VM.new.run [
+        JUMP
       ]
     end
   end
