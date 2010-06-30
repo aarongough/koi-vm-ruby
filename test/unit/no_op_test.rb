@@ -10,8 +10,8 @@ class NoOpTest < Test::Unit::TestCase
     ]
     assert_equal [{
       :stack => [],
-      :isntruction_pointer => 1
-    }]
+      :instruction_pointer => 1
+    }], state
   end
   
 end
