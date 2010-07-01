@@ -4,7 +4,7 @@ class PrintTest < Test::Unit::TestCase
 
   include Koi
   
-  test "PRINT REGA should output REGA to STDOUT" do
+  test "PRINT should output top stack item to STDOUT" do
     old_stdout = $stdout
     tmp_stdout = StringIO.new
     $stdout = tmp_stdout
