@@ -12,5 +12,6 @@ module Koi
   MULTIPLY    = 10
   DIVIDE      = 11
   DUP         = 12
+  INPUT       = 13
   EXIT        = 64
 end
