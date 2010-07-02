@@ -1,8 +1,16 @@
 module Koi
   class VM
     
+    attr_accessor :state
+    
     def initialize(state = nil, opcodes = [])
       if(!state.nil?)
+        raise ArgumentError, "initial state must contain at least one thread state" unless(state.size > 0)
+        raise ArgumentError, "thread state must be a hash" if(state.map{|x| x.is_a?(Hash)}.include?(false))
+        raise ArgumentError, "thread state must include stack" if(state.map{|x| x.has_key?(:stack)}.include?(false))
+        raise ArgumentError, "thread state must include stack" if(state.map{|x| x.has_key?(:instruction_pointer)}.include?(false))
+        raise ArgumentError, "stack must be an array" if(state.map{|x| x[:stack].is_a?(Array)}.include?(false))
+        raise ArgumentError, "instruction_pointer must be an integer" if(state.map{|x| x[:instruction_pointer].is_a?(Integer)}.include?(false))
         @state = state
       else
         @state = [{

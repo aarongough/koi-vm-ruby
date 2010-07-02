@@ -12,6 +12,15 @@ class VmInitializationTest < Test::Unit::TestCase
     }], vm.state
   end
   
+  test "VM.new with valid state should not raise error" do
+    assert_nothing_raised do
+      VM.new([{
+        :stack => [],
+        :instruction_pointer => 0
+      }])
+    end
+  end
+  
   test "VM.new should raise ArgumentError if given empty state" do
     assert_raises ArgumentError do
       VM.new([])
