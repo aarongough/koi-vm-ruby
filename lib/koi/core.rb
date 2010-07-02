@@ -5,7 +5,7 @@ module Koi
     
     def initialize(state = {}, opcodes = [])
       default_state = {
-        :opcodes => [],
+        :opcodes => opcodes,
         :fiber_id => 0,
         :globals => [],
         :fibers => [{
