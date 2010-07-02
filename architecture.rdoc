@@ -23,7 +23,7 @@ This document is a general overview of the Koi VM architecture. It is used inter
     x SET_LOCAL   index
     x GET_LOCAL   index
     x SET_GLOBAL  index
-      GET_GLOBAL  index
+    x GET_GLOBAL  index
     
 * Instruction Pointer
     x JUMP          destination_offset

@@ -18,5 +18,6 @@ module Koi
   SET_LOCAL   = 16
   GET_LOCAL   = 17
   SET_GLOBAL  = 18
+  GET_GLOBAL  = 19
   EXIT        = 64
 end
