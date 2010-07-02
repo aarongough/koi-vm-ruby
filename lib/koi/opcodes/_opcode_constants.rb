@@ -15,5 +15,6 @@ module Koi
   INPUT       = 13
   SWAP        = 14
   TOP         = 15
+  SET_LOCAL   = 16
   EXIT        = 64
 end

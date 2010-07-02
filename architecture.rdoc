@@ -20,7 +20,7 @@ This document is a general overview of the Koi VM architecture. It is used inter
     x TOP   number_of_stack_items
 
 * Variables
-      SET_LOCAL   index
+    x SET_LOCAL   index
       GET_LOCAL   index
       SET_GLOBAL  index
       GET_GLOBAL  index
