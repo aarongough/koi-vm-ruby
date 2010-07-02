@@ -13,5 +13,6 @@ module Koi
   DIVIDE      = 11
   DUP         = 12
   INPUT       = 13
+  SWAP        = 14
   EXIT        = 64
 end
