@@ -13,56 +13,56 @@ This document is a general overview of the Koi VM architecture. It is used inter
 === Operations
 
 * Stack
-  x PUSH  item
-  x POP
-    SWAP
-  x DUP
-    TOP   number_of_stack_items
+    x PUSH  item
+    x POP
+      SWAP
+    x DUP
+      TOP   number_of_stack_items
 
 * Variables
-    SET_LOCAL   index
-    GET_LOCAL   index
-    SET_GLOBAL  index
-    GET_GLOBAL  index
+      SET_LOCAL   index
+      GET_LOCAL   index
+      SET_GLOBAL  index
+      GET_GLOBAL  index
     
 * Instruction Pointer
-  x JUMP          destination_offset
-  x JUMP_IF       destination_offset
-  x JUMP_UNLESS   destination_offset
+    x JUMP          destination_offset
+    x JUMP_IF       destination_offset
+    x JUMP_UNLESS   destination_offset
 
 * Integers / Floats
-  x ADD
-  x SUBTRACT
-  x MULTIPLY
-  x DIVIDE
-    MODULO
-    INCREMENT
-    DECREMENT
-    EQUAL
-    NOT_EQUAL
-    LESS_THAN
-    GREATER_THAN
-    EQUAL_LESS_THAN
-    EQUAL_GREATER_THAN
-    TO_STRING
+    x ADD
+    x SUBTRACT
+    x MULTIPLY
+    x DIVIDE
+      MODULO
+      INCREMENT
+      DECREMENT
+      EQUAL
+      NOT_EQUAL
+      LESS_THAN
+      GREATER_THAN
+      EQUAL_LESS_THAN
+      EQUAL_GREATER_THAN
+      TO_STRING
     
 * Strings
-    CONCATENATE
-    LENGTH
+      CONCATENATE
+      LENGTH
     
 * I/O
-    IO_SOURCE   identifier
-    IO_PUT
-    IO_GET
+      IO_SOURCE   identifier
+      IO_PUT
+      IO_GET
     
 * Fibers
-    FIBER_ID
-    NEW_FIBER
-    DELETE_FIBER
-    YIELD_FIBER
-    
+      FIBER_ID
+      NEW_FIBER
+      DELETE_FIBER
+      YIELD_FIBER
+      
 * Misc
-  x EXIT
+    x EXIT
          
     
 
