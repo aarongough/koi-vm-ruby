@@ -76,4 +76,13 @@ class OperandTest < Test::Unit::TestCase
     end
   end
   
+  test "operand() should raise OperandError if no operand is supplied" do
+    assert_raises OperandError do
+      vm = VM.new({},[
+        PUSH
+      ])
+      vm.operand()
+    end
+  end
+  
 end
