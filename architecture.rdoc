@@ -13,22 +13,22 @@ This document is a general overview of the Koi VM architecture. It is used inter
 === Operations
 
 * Stack
-  x PUSH
+  x PUSH  item
   x POP
     SWAP
   x DUP
-    TOP
+    TOP   number_of_stack_items
 
 * Variables
-    SET_LOCAL
-    GET_LOCAL
-    SET_GLOBAL
-    GET_GLOBAL
+    SET_LOCAL   index
+    GET_LOCAL   index
+    SET_GLOBAL  index
+    GET_GLOBAL  index
     
 * Instruction Pointer
-  x JUMP
-  x JUMP_IF
-  x JUMP_UNLESS
+  x JUMP          destination_offset
+  x JUMP_IF       destination_offset
+  x JUMP_UNLESS   destination_offset
 
 * Integers / Floats
   x ADD
@@ -51,7 +51,7 @@ This document is a general overview of the Koi VM architecture. It is used inter
     LENGTH
     
 * I/O
-    IO_SOURCE
+    IO_SOURCE   identifier
     IO_PUT
     IO_GET
     
