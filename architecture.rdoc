@@ -1,0 +1,75 @@
+= Koi Architecture
+
+This document is a general overview of the Koi VM architecture. It is used internally as a design document and to keep track of what work still needs to be done.
+
+=== Datatypes
+
+* Integer
+* Float
+* String
+* Array (coming later)
+* Hash (coming later)
+
+=== Operations
+
+* Stack
+    PUSH
+    POP
+    SWAP
+    DUP
+    TOP
+
+* Variables
+    SET_LOCAL
+    GET_LOCAL
+    SET_GLOBAL
+    GET_GLOBAL
+    
+* Instruction Pointer
+    JUMP
+    JUMP_IF
+    JUMP_UNLESS
+
+* Integers / Floats
+    ADD
+    SUBTRACT
+    MULTIPLY
+    DIVIDE
+    MODULO
+    INCREMENT
+    DECREMENT
+    EQUAL
+    NOT_EQUAL
+    LESS_THAN
+    GREATER_THAN
+    EQUAL_LESS_THAN
+    EQUAL_GREATER_THAN
+    TO_STRING
+    
+* Strings
+    CONCATENATE
+    LENGTH
+    
+* I/O
+    IO_SOURCE
+    IO_PUT
+    IO_GET
+    
+* Fibers
+    FIBER_ID
+    NEW_FIBER
+    DELETE_FIBER
+    YIELD_FIBER
+    
+* Misc
+    EXIT
+         
+    
+
+=== Exceptions
+
+* StackError
+    Denotes that an error occurred when accessing items on the stack. The most likely cases are that there were not enough items on the stack for an opcode to work, or that the items were not of the correct type.
+    
+* OperandError
+    Denotes that an error occurred when reading an operand for an opcode. This may be because an operand was not supplied, or because it was not of the correct type.
