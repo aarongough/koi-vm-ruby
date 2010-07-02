@@ -65,4 +65,15 @@ class OperandTest < Test::Unit::TestCase
     end
   end
   
+  test "operand() should not raise anything regardless of operand type" do
+    [1, 1.0, "test"].each do |x|
+      vm = VM.new({},[
+        PUSH, x
+      ])
+      assert_nothing_raised do
+        vm.operand()
+      end
+    end
+  end
+  
 end
