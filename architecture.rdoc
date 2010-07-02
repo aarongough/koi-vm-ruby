@@ -13,10 +13,10 @@ This document is a general overview of the Koi VM architecture. It is used inter
 === Operations
 
 * Stack
-    PUSH
-    POP
+  x PUSH
+  x POP
     SWAP
-    DUP
+  x DUP
     TOP
 
 * Variables
@@ -26,15 +26,15 @@ This document is a general overview of the Koi VM architecture. It is used inter
     GET_GLOBAL
     
 * Instruction Pointer
-    JUMP
-    JUMP_IF
-    JUMP_UNLESS
+  x JUMP
+  x JUMP_IF
+  x JUMP_UNLESS
 
 * Integers / Floats
-    ADD
-    SUBTRACT
-    MULTIPLY
-    DIVIDE
+  x ADD
+  x SUBTRACT
+  x MULTIPLY
+  x DIVIDE
     MODULO
     INCREMENT
     DECREMENT
@@ -62,7 +62,7 @@ This document is a general overview of the Koi VM architecture. It is used inter
     YIELD_FIBER
     
 * Misc
-    EXIT
+  x EXIT
          
     
 
