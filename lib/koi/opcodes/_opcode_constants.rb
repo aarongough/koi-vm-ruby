@@ -12,7 +12,6 @@ module Koi
   MULTIPLY    = 10
   DIVIDE      = 11
   DUP         = 12
-  INPUT       = 13
   SWAP        = 14
   TOP         = 15
   SET_LOCAL   = 16
