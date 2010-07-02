@@ -9,9 +9,7 @@ class SimpleProgramTest < Test::Unit::TestCase
       PUSH, "Hello",
       PUSH, "world!"
     ]
-    assert_equal [{
-      :stack => ["Hello", "world!"],
-      :instruction_pointer => 4
-    }], state
+    assert_equal ["Hello", "world!"], state[:fibers][0][:stack]
+    assert_equal 4, state[:fibers][0][:instruction_pointer]
   end
 end

@@ -8,10 +8,8 @@ class PushTest < Test::Unit::TestCase
     state = VM.new.run [
       PUSH, "Hello"
     ]
-    assert_equal [{
-      :stack => ["Hello"],
-      :instruction_pointer => 2
-    }], state
+    assert_equal ["Hello"], state[:fibers][0][:stack]
+    assert_equal 2, state[:fibers][0][:instruction_pointer]
   end
   
   test "PUSH without operand should raise OperandError" do

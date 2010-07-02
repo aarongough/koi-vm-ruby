@@ -3,7 +3,7 @@ module Koi
     
     # EXIT
     def opcode64
-      @state[@state_identifier][:instruction_pointer] += 1
+      @state[:fibers][@state[:fiber_id]][:instruction_pointer] += 1
       return true
     end    
     

@@ -3,9 +3,9 @@ module Koi
     
     # DUP
     def opcode12
-      raise StackError, "DUP: Nothing on stack at offset: #{@state[@state_identifier][:instruction_pointer]}" if(@state[@state_identifier][:stack].size == 0)
-      @state[@state_identifier][:stack].push(@state[@state_identifier][:stack][-1])
-      @state[@state_identifier][:instruction_pointer] += 1
+      raise StackError, "DUP: Nothing on stack at offset: #{@state[:fibers][@state[:fiber_id]][:instruction_pointer]}" if(@state[:fibers][@state[:fiber_id]][:stack].size == 0)
+      @state[:fibers][@state[:fiber_id]][:stack].push(@state[:fibers][@state[:fiber_id]][:stack][-1])
+      @state[:fibers][@state[:fiber_id]][:instruction_pointer] += 1
     end
     
   end

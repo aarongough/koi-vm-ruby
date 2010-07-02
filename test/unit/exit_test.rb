@@ -9,10 +9,8 @@ class ExitTest < Test::Unit::TestCase
       EXIT,
       PUSH, "Hello"
     ]
-    assert_equal [{
-      :stack => [],
-      :instruction_pointer => 1
-    }], state
+    assert_equal [], state[:fibers][0][:stack]
+    assert_equal 1, state[:fibers][0][:instruction_pointer]
   end
   
 end

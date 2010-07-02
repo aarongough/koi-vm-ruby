@@ -5,17 +5,10 @@ class JumpTest < Test::Unit::TestCase
   include Koi
   
   test "JUMP should add offset to instruction_pointer" do
-    vm = VM.new([{
-      :stack => [],
-      :instruction_pointer => 0
-    }])
-    state = vm.run [
+    state = VM.new.run [
       JUMP, 5
     ]
-    assert_equal [{
-      :stack => [],
-      :instruction_pointer => 5
-    }], state
+    assert_equal 5, state[:fibers][0][:instruction_pointer]
   end
   
   test "JUMP should raise OperandError if offset is not an integer" do
@@ -26,8 +19,8 @@ class JumpTest < Test::Unit::TestCase
     end
   end
   
-  test "JUMP should raise StackError if no operand is supplied" do
-    assert_raises RuntimeError do
+  test "JUMP should raise OperandError if no operand is supplied" do
+    assert_raises OperandError do
       VM.new.run [
         JUMP
       ]

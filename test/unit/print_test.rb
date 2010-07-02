@@ -8,17 +8,17 @@ class PrintTest < Test::Unit::TestCase
     old_stdout = $stdout
     tmp_stdout = StringIO.new
     $stdout = tmp_stdout
-    vm = VM.new([{
-      :stack => ["Test"],
-      :instruction_pointer => 0
-    }])
+    vm = VM.new({
+      :fibers => [{
+        :stack => ["Test"],
+        :locals => [],
+        :instruction_pointer => 0
+      }]
+    })
     state = vm.run [
       PRINT
     ]
-    assert_equal [{
-      :stack => [],
-      :instruction_pointer => 1
-    }], state
+    assert_equal 1, state[:fibers][0][:instruction_pointer]
     assert_equal "Test", tmp_stdout.string
     $stdout = old_stdout
   end

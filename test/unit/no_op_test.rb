@@ -8,10 +8,7 @@ class NoOpTest < Test::Unit::TestCase
     state = VM.new.run [
       NO_OP
     ]
-    assert_equal [{
-      :stack => [],
-      :instruction_pointer => 1
-    }], state
+    assert_equal 1, state[:fibers][0][:instruction_pointer]
   end
   
 end

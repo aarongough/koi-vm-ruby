@@ -3,9 +3,9 @@ module Koi
     
     # ADD
     def opcode8
-      raise StackError, "ADD: Not enough items on stack at offset: #{@state[@state_identifier][:instruction_pointer]}. Stack size: #{@state[@state_identifier][:stack].size}" if(@state[@state_identifier][:stack].size < 2)
-      @state[@state_identifier][:stack].push(@state[@state_identifier][:stack].pop + @state[@state_identifier][:stack].pop)
-      @state[@state_identifier][:instruction_pointer] += 1
+      raise StackError, "ADD: Not enough items on stack at offset: #{@state[:fibers][@state[:fiber_id]][:instruction_pointer]}. Stack size: #{@state[:fibers][@state[:fiber_id]][:stack].size}" if(@state[:fibers][@state[:fiber_id]][:stack].size < 2)
+      @state[:fibers][@state[:fiber_id]][:stack].push(@state[:fibers][@state[:fiber_id]][:stack].pop + @state[:fibers][@state[:fiber_id]][:stack].pop)
+      @state[:fibers][@state[:fiber_id]][:instruction_pointer] += 1
     end
     
   end

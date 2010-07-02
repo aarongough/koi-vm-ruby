@@ -5,25 +5,29 @@ class MultiplyTest < Test::Unit::TestCase
   include Koi
   
   test "MULTIPLY should MULTIPLY stack[-2] by stack [-1]" do
-    vm = VM.new([{
-      :stack => [10,2],
-      :instruction_pointer => 0
-    }])
+    vm = VM.new({
+      :fibers => [{
+        :stack => [10,2],
+        :locals => [],
+        :instruction_pointer => 0
+      }]
+    })
     state = vm.run [
       MULTIPLY
     ]
-    assert_equal [{
-      :stack => [20],
-      :instruction_pointer => 1,
-    }], state
+    assert_equal [20], state[:fibers][0][:stack]
+    assert_equal 1, state[:fibers][0][:instruction_pointer]
   end
   
   test "MULTIPLY should raise StackError if only 1 item is on the stack" do
     assert_raises StackError do
-      vm = VM.new([{
-        :stack => [10],
-        :instruction_pointer => 0
-      }])
+      vm = VM.new({
+        :fibers => [{
+          :stack => [10],
+          :locals => [],
+          :instruction_pointer => 0
+        }]
+      })
       vm.run [
         MULTIPLY
       ]
@@ -32,11 +36,7 @@ class MultiplyTest < Test::Unit::TestCase
   
   test "MULTIPLY should raise StackError if no items are on the stack" do
     assert_raises StackError do
-      vm = VM.new([{
-        :stack => [],
-        :instruction_pointer => 0
-      }])
-      vm.run [
+      VM.new.run [
         MULTIPLY
       ]
     end

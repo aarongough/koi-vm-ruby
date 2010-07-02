@@ -3,9 +3,9 @@ module Koi
     
     # PUSH
     def opcode1
-      raise OperandError, "Operand not supplied to PUSH at offset: #{@state[@state_identifier][:instruction_pointer]}" if(@opcodes[@state[@state_identifier][:instruction_pointer] + 1].nil?)
-      @state[@state_identifier][:stack].push @opcodes[@state[@state_identifier][:instruction_pointer] + 1]
-      @state[@state_identifier][:instruction_pointer] += 2
+      raise OperandError, "Operand not supplied to PUSH at offset: #{@state[:fibers][@state[:fiber_id]][:instruction_pointer]}" if(@state[:opcodes][@state[:fibers][@state[:fiber_id]][:instruction_pointer] + 1].nil?)
+      @state[:fibers][@state[:fiber_id]][:stack].push @state[:opcodes][@state[:fibers][@state[:fiber_id]][:instruction_pointer] + 1]
+      @state[:fibers][@state[:fiber_id]][:instruction_pointer] += 2
     end
     
   end

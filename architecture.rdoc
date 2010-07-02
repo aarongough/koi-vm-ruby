@@ -15,7 +15,7 @@ This document is a general overview of the Koi VM architecture. It is used inter
 * Stack
     x PUSH  item
     x POP
-      SWAP
+    x SWAP
     x DUP
       TOP   number_of_stack_items
 
