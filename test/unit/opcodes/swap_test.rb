@@ -1,43 +1,43 @@
-require File.expand_path(File.join(File.dirname(__FILE__), '..', 'test_helper.rb'))
+require File.expand_path(File.join(File.dirname(__FILE__), '..', "..", 'test_helper.rb'))
 
-class AddTest < Test::Unit::TestCase
+class SwapTest < Test::Unit::TestCase
 
   include Koi
   
-  test "ADD should add top two items on the stack" do
+  test "SWAP should swap top two items on stack" do
     vm = VM.new({
       :fibers => [{
-        :stack => [2, 2],
+        :stack => [1, 2],
         :locals => [],
         :instruction_pointer => 0
       }]
     })
     state = vm.run [
-      ADD
+      SWAP
     ]
-    assert_equal [4], state[:fibers][0][:stack]
+    assert_equal [2,1], state[:fibers][0][:stack]
     assert_equal 1, state[:fibers][0][:instruction_pointer]
   end
   
-  test "ADD should raise StackError if only 1 item is on the stack" do
+  test "SWAP should raise StackError if only 1 item is on the stack" do
     assert_raises StackError do
       vm = VM.new({
         :fibers => [{
-          :stack => [2],
+          :stack => [1],
           :locals => [],
           :instruction_pointer => 0
         }]
       })
       state = vm.run [
-        ADD
+        SWAP
       ]
     end
   end
   
-  test "ADD should raise StackError if no items are on the stack" do
+  test "SWAP should raise StackError if there are no items on the stack" do
     assert_raises StackError do
       VM.new.run [
-        ADD
+        SWAP
       ]
     end
   end
