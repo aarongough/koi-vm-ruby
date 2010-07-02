@@ -3,8 +3,10 @@ module Koi
     
     # POP
     def opcode2
-      raise StackError, "POP: Nothing on stack at offset: #{@state[:fibers][@state[:fiber_id]][:instruction_pointer]}" if(@state[:fibers][@state[:fiber_id]][:stack].pop.nil?)
-      @state[:fibers][@state[:fiber_id]][:instruction_pointer] += 1
+      expect_stack_size(1)
+      fiber = this_fiber
+      fiber[:stack].pop
+      fiber[:instruction_pointer] += 1
     end
     
   end

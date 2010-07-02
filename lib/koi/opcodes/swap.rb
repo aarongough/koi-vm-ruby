@@ -3,13 +3,13 @@ module Koi
     
     # SWAP
     def opcode14
-      raise StackError, "SWAP: Nothing on stack at offset: #{@state[:fibers][@state[:fiber_id]][:instruction_pointer]}" if(@state[:fibers][@state[:fiber_id]][:stack].size == 0)
-      raise StackError, "SWAP: Not enough items on stack at offset: #{@state[:fibers][@state[:fiber_id]][:instruction_pointer]}. Stack size: #{@state[:fibers][@state[:fiber_id]][:stack].size}" if(@state[:fibers][@state[:fiber_id]][:stack].size < 2)
-      one = @state[:fibers][@state[:fiber_id]][:stack].pop
-      two = @state[:fibers][@state[:fiber_id]][:stack].pop
-      @state[:fibers][@state[:fiber_id]][:stack].push one
-      @state[:fibers][@state[:fiber_id]][:stack].push two
-      @state[:fibers][@state[:fiber_id]][:instruction_pointer] += 1
+      expect_stack_size(2)
+      fiber = this_fiber
+      one = fiber[:stack].pop
+      two = fiber[:stack].pop
+      fiber[:stack].push one
+      fiber[:stack].push two
+      fiber[:instruction_pointer] += 1
     end
     
   end

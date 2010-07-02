@@ -3,8 +3,9 @@ module Koi
     
     # STKSIZE
     def opcode3
-      @state[:fibers][@state[:fiber_id]][:stack].push(@state[:fibers][@state[:fiber_id]][:stack].size)
-      @state[:fibers][@state[:fiber_id]][:instruction_pointer] += 1
+      fiber = this_fiber
+      fiber[:stack].push(fiber[:stack].size)
+      fiber[:instruction_pointer] += 1
     end
     
   end
