@@ -17,7 +17,7 @@ This document is a general overview of the Koi VM architecture. It is used inter
     x POP
     x SWAP
     x DUP
-      TOP   number_of_stack_items
+    x TOP   number_of_stack_items
 
 * Variables
       SET_LOCAL   index
@@ -57,6 +57,7 @@ This document is a general overview of the Koi VM architecture. It is used inter
     
 * Fibers
       FIBER_ID
+      NUM_FIBERS
       NEW_FIBER
       DELETE_FIBER
       YIELD_FIBER

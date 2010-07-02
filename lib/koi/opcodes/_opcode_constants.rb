@@ -14,5 +14,6 @@ module Koi
   DUP         = 12
   INPUT       = 13
   SWAP        = 14
+  TOP         = 15
   EXIT        = 64
 end
