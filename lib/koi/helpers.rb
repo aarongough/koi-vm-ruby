@@ -13,6 +13,10 @@ module Koi
       end
       return next_opcode
     end
+    
+    def expect_stack_size(size)
+      raise StackError, "Expecting at lease #{size} items on the stack at offset: #{@state[:fibers][@state[:fiber_id]][:instruction_pointer]}" if(@state[:fibers][@state[:fiber_id]][:stack].size < size)
+    end
   
   end
 end
