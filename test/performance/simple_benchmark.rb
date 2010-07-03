@@ -4,6 +4,7 @@ class SimpleBenchmark < Test::Unit::TestCase
   
   require "benchmark"
   require "stringio"
+  require 'ruby-prof'
   include Koi
   
   vm = VM.new
@@ -12,7 +13,7 @@ class SimpleBenchmark < Test::Unit::TestCase
     Benchmark.bmbm do |b|
       b.report("Ruby") do
         silence do
-          100.times do
+          1000.times do
             x = 10
             while(x > -1) do
               print "#{x}, "
@@ -25,7 +26,7 @@ class SimpleBenchmark < Test::Unit::TestCase
       
       b.report("Koi") do
         silence do
-          100.times do
+          1000.times do
             vm.run [
               PUSH, 11,
               PUSH, 1,
@@ -42,6 +43,29 @@ class SimpleBenchmark < Test::Unit::TestCase
           end
         end
       end
+    end
+  end
+  
+  test "simple profile" do
+    silence do
+      result = RubyProf.profile do
+        vm.run [
+          PUSH, 11,
+          PUSH, 1,
+          SUBTRACT,
+          DUP,
+          PRINT,
+          PUSH, ", ",
+          PRINT,
+          DUP, 
+          JUMP_IF, -9,
+          PUSH, "Blast off!\n",
+          PRINT
+        ]
+      end
+      file = File.new(File.join(File.dirname(__FILE__), "koi_profile.html"), "w+")
+      printer = RubyProf::GraphHtmlPrinter.new(result)
+      printer.print(file, :min_percent=>0)
     end
   end
   
