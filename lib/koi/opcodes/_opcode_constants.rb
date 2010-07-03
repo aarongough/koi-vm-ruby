@@ -20,5 +20,6 @@ module Koi
   GET_GLOBAL  = 19
   INCREMENT   = 20
   DECREMENT   = 21
+  FIBER_ID    = 22
   EXIT        = 64
 end

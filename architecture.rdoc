@@ -50,13 +50,16 @@ This document is a general overview of the Koi VM architecture. It is used inter
       CONCATENATE
       LENGTH
     
-* I/O
-      IO_SOURCE   identifier
+* Socket I/O    
+      NEW_SOCKET_IO
+
+* File I/O
+      NEW_FILE_IO
       IO_PUT
       IO_GET
     
 * Fibers
-      FIBER_ID
+    x FIBER_ID
       NUM_FIBERS
       NEW_FIBER
       DELETE_FIBER
