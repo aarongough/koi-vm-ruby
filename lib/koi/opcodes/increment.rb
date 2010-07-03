@@ -5,7 +5,7 @@ module Koi
     def opcode20
       expect_stack_size(1)
       fiber = this_fiber
-      fiber[:stack].push fiber[:stack].pop.next
+      fiber[:stack][-1] += 1
       fiber[:instruction_pointer] += 1
     end
     
