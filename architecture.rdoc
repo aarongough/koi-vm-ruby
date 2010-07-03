@@ -62,7 +62,7 @@ This document is a general overview of the Koi VM architecture. It is used inter
     x FIBER_ID
       NUM_FIBERS
     x NEW_FIBER
-      DELETE_FIBER
+    x DELETE_FIBER
       YIELD_FIBER
       
 * Misc
