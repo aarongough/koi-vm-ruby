@@ -21,5 +21,6 @@ module Koi
   INCREMENT   = 20
   DECREMENT   = 21
   FIBER_ID    = 22
+  NEW_FIBER   = 23
   EXIT        = 64
 end
