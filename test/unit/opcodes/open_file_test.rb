@@ -35,6 +35,7 @@ class OpenFileTest < Test::Unit::TestCase
     assert state[:fibers][0][:stack][0].is_a?(Integer)
     assert_equal 1, state[:fibers][0][:instruction_pointer]
     assert_equal 1, vm.files.size
+    File.rm("test.txt")
   end
   
   test "OPEN_FILE should raise StackError if only 1 item is on the stack" do
