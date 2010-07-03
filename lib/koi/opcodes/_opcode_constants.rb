@@ -19,5 +19,6 @@ module Koi
   SET_GLOBAL  = 18
   GET_GLOBAL  = 19
   INCREMENT   = 20
+  DECREMENT   = 21
   EXIT        = 64
 end
