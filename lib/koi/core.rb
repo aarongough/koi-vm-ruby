@@ -25,13 +25,9 @@ module Koi
   
     def run(opcodes = [])
       @state[:opcodes].concat(opcodes)
-      while (@state[:fibers][@state[:fiber_id]][:instruction_pointer] < @state[:opcodes].size)
-        opcode_name = "opcode" + @state[:opcodes][@state[:fibers][@state[:fiber_id]][:instruction_pointer]].to_s
-        if(methods.include?(opcode_name.to_sym))
-          break if(send(opcode_name) == true)
-        else
-          raise RuntimeError, "Invalid opcode: #{@state[:opcodes][@state[:fibers][@state[:fiber_id]][:instruction_pointer]]}"
-        end
+      opcode_size = @state[:opcodes].size
+      while (@state[:fibers][@state[:fiber_id]][:instruction_pointer] < opcode_size)
+        break if(send("opcode" + @state[:opcodes][@state[:fibers][@state[:fiber_id]][:instruction_pointer]].to_s) == true)
       end
       
       return @state
