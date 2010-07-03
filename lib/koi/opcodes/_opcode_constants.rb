@@ -18,5 +18,6 @@ module Koi
   GET_LOCAL   = 17
   SET_GLOBAL  = 18
   GET_GLOBAL  = 19
+  INCREMENT   = 20
   EXIT        = 64
 end

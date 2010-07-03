@@ -36,7 +36,7 @@ This document is a general overview of the Koi VM architecture. It is used inter
     x MULTIPLY
     x DIVIDE
       MODULO
-      INCREMENT
+    x INCREMENT
       DECREMENT
       EQUAL
       NOT_EQUAL
