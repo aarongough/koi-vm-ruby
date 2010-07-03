@@ -29,14 +29,13 @@ class SimpleBenchmark < Test::Unit::TestCase
           1000.times do
             vm.run [
               PUSH, 11,
-              PUSH, 1,
-              SUBTRACT,
+              DECREMENT,
               DUP,
               PRINT,
               PUSH, ", ",
               PRINT,
               DUP, 
-              JUMP_IF, -9,
+              JUMP_IF, -7,
               PUSH, "Blast off!\n",
               PRINT
             ]
@@ -51,14 +50,13 @@ class SimpleBenchmark < Test::Unit::TestCase
       result = RubyProf.profile do
         vm.run [
           PUSH, 11,
-          PUSH, 1,
-          SUBTRACT,
+          DECREMENT,
           DUP,
           PRINT,
           PUSH, ", ",
           PRINT,
           DUP, 
-          JUMP_IF, -9,
+          JUMP_IF, -7,
           PUSH, "Blast off!\n",
           PRINT
         ]

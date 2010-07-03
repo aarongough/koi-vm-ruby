@@ -4,14 +4,13 @@ include Koi
 
 VM.new.run [
   PUSH, 11,
-  PUSH, 1,
-  SUBTRACT,
+  DECREMENT,
   DUP,
   PRINT,
   PUSH, ", ",
   PRINT,
   DUP, 
-  JUMP_IF, -9,
+  JUMP_IF, -7,
   PUSH, "Blast off!\n",
   PRINT
 ]
