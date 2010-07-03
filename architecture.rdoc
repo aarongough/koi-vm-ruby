@@ -54,7 +54,7 @@ This document is a general overview of the Koi VM architecture. It is used inter
       NEW_SOCKET_IO
 
 * File I/O
-      OPEN_FILE
+    x OPEN_FILE
       FILE_PUT
       FILE_GET
       FILE_FLUSH

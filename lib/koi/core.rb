@@ -1,7 +1,7 @@
 module Koi
   class VM
     
-    attr_accessor :state
+    attr_accessor :state, :files
     
     def initialize(state = {}, opcodes = [])
       default_state = {
@@ -14,7 +14,8 @@ module Koi
           :instruction_pointer => 0
         }]
       }
-      @state = default_state.merge(state)    
+      @state = default_state.merge(state)
+      @files = {} 
       raise ArgumentError, "state[:fibers][x] must be a hash" if(@state[:fibers].map{|x| x.is_a?(Hash)}.include?(false))
       raise ArgumentError, "state[:fibers][x][:stack] must be an Array" if(@state[:fibers].map{|x| x[:stack].is_a?(Array)}.include?(false))
       raise ArgumentError, "state[:fibers][x][:instruction_pointer] must be an Integer" if(@state[:fibers].map{|x| x[:instruction_pointer].is_a?(Integer)}.include?(false))
