@@ -54,9 +54,11 @@ This document is a general overview of the Koi VM architecture. It is used inter
       NEW_SOCKET_IO
 
 * File I/O
-      NEW_FILE_IO
-      IO_PUT
-      IO_GET
+      OPEN_FILE
+      FILE_PUT
+      FILE_GET
+      FILE_FLUSH
+      FILE_CLOSE
     
 * Fibers
     x FIBER_ID
