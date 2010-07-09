@@ -57,7 +57,7 @@ This document is a general overview of the Koi VM architecture. It is used inter
       LENGTH
       
 * Arrays
-      ARRAY_NEW
+    x ARRAY_NEW
       ARRAY_GET_INDEX
       ARRAY_PUT_INDEX
       ARRAY_SIZE
@@ -76,7 +76,7 @@ This document is a general overview of the Koi VM architecture. It is used inter
       NEW_SOCKET_IO
 
 * File I/O
-      FILE_OPEN
+    x FILE_OPEN
     x FILE_PUT
       FILE_GET
       FILE_FLUSH
@@ -91,8 +91,8 @@ This document is a general overview of the Koi VM architecture. It is used inter
 * Fibers
     x FIBER_ID
       FIBER_LENGTH
-      FIBER_NEW
-      FIBER_DELETE
+    x FIBER_NEW
+    x FIBER_DELETE
       FIBER_YIELD
       
 * Misc

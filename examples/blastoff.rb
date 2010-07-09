@@ -5,7 +5,7 @@ include Koi
 VM.new.run [
   PUSH, 1,    # Open STDOUT for writing
   PUSH, "w",
-  OPEN_FILE,
+  FILE_OPEN,
   PUSH, 11,   
   DECREMENT,
   DUP,

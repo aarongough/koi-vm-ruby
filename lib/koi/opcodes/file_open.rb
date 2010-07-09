@@ -1,7 +1,7 @@
 module Koi
   class VM
     
-    # OPEN_FILE
+    # FILE_OPEN
     def opcode25
       expect_stack_size(2)
       fiber = this_fiber
@@ -10,7 +10,7 @@ module Koi
       if(descriptor.is_a?(String))
         descriptor = IO.sysopen(descriptor, mode)
       elsif(!descriptor.is_a?(Integer))
-        raise StackError, "Unknown file descriptor type in OPEN_FILE at offset: #{fiber[:instruction_pointer]}"
+        raise StackError, "Unknown file descriptor type in FILE_OPEN at offset: #{fiber[:instruction_pointer]}"
       end
       io = IO.new(descriptor)
       @files[io.fileno] = io

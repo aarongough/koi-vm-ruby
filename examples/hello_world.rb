@@ -5,7 +5,7 @@ include Koi
 VM.new.run [
   PUSH, 1,
   PUSH, "w",
-  OPEN_FILE,
+  FILE_OPEN,
   PUSH, "Hello World!\n",
   FILE_PUT
 ]

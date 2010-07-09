@@ -1,7 +1,7 @@
 module Koi
   class VM
     
-    # DELETE_FIBER
+    # FIBER_DELETE
     def opcode24
       if(@state[:fibers].compact.size == 1)
         this_fiber[:instruction_pointer] += 1

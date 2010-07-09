@@ -34,7 +34,7 @@ class SimpleBenchmark < Test::Unit::TestCase
             vm.run [
               PUSH, "test.html",
               PUSH, "w",
-              OPEN_FILE,
+              FILE_OPEN,
               SET_GLOBAL, 1,
               PUSH, 11,   
               DECREMENT,
@@ -64,7 +64,7 @@ class SimpleBenchmark < Test::Unit::TestCase
         vm.run [
           PUSH, "test.html",
           PUSH, "w",
-          OPEN_FILE,
+          FILE_OPEN,
           SET_GLOBAL, 1,
           PUSH, 11,   
           DECREMENT,

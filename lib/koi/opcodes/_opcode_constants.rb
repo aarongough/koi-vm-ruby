@@ -20,9 +20,9 @@ module Koi
   INCREMENT     = 20
   DECREMENT     = 21
   FIBER_ID      = 22
-  NEW_FIBER     = 23
-  DELETE_FIBER  = 24
-  OPEN_FILE     = 25
+  FIBER_NEW     = 23
+  FIBER_DELETE  = 24
+  FILE_OPEN     = 25
   FILE_PUT      = 26
   TO_STRING     = 27
   ABS_JUMP      = 28
