@@ -68,6 +68,7 @@ This document is a general overview of the Koi VM architecture. It is used inter
       YIELD_FIBER
       
 * Misc
+    x TO_STRING
     x EXIT
          
     
