@@ -70,6 +70,7 @@ This document is a general overview of the Koi VM architecture. It is used inter
       
 * Misc
     x CALL
+    x RETURN
     x PUSH_FUNCTION
     x END_FUNCTION
     x TO_STRING

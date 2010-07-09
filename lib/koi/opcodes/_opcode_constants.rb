@@ -29,5 +29,6 @@ module Koi
   PUSH_FUNCTION = 29
   END_FUNCTION  = 30
   CALL          = 31
+  RETURN        = 32
   EXIT          = 64
 end             
