@@ -24,5 +24,6 @@ module Koi
   NEW_FIBER     = 23
   DELETE_FIBER  = 24
   OPEN_FILE     = 25
+  FILE_PUT      = 26
   EXIT          = 64
 end             

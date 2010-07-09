@@ -55,7 +55,7 @@ This document is a general overview of the Koi VM architecture. It is used inter
 
 * File I/O
     x OPEN_FILE
-      FILE_PUT
+    x FILE_PUT
       FILE_GET
       FILE_FLUSH
       FILE_CLOSE
