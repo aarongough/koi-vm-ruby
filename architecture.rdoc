@@ -26,7 +26,8 @@ This document is a general overview of the Koi VM architecture. It is used inter
     x GET_GLOBAL  index
     
 * Instruction Pointer
-    x JUMP          destination_offset
+    x ABS_JUMP
+    x REL_JUMP      destination_offset
     x JUMP_IF       destination_offset
     x JUMP_UNLESS   destination_offset
 

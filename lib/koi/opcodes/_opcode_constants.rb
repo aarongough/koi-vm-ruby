@@ -25,5 +25,6 @@ module Koi
   OPEN_FILE     = 25
   FILE_PUT      = 26
   TO_STRING     = 27
+  ABS_JUMP      = 28
   EXIT          = 64
 end             
