@@ -30,5 +30,6 @@ module Koi
   END_FUNCTION  = 30
   CALL          = 31
   RETURN        = 32
+  ARRAY_NEW     = 33
   EXIT          = 64
 end             
