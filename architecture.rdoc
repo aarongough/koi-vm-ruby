@@ -13,7 +13,13 @@ This document is a general overview of the Koi VM architecture. It is used inter
 === Operations
 
 * Stack
-    x PUSH  item
+      PUSH_NIL
+      PUSH_BOOL   boolean
+      PUSH_INT    integer
+      PUSH_FLOAT  float
+      PUSH_STRING string
+      PUSH_ARRAY  array
+      PUSH_HASH   hash
     x POP
     x SWAP
     x DUP
@@ -45,34 +51,52 @@ This document is a general overview of the Koi VM architecture. It is used inter
       GREATER_THAN
       EQUAL_LESS_THAN
       EQUAL_GREATER_THAN
-      TO_STRING
     
 * Strings
       CONCATENATE
       LENGTH
+      
+* Arrays
+      ARRAY_NEW
+      ARRAY_GET_INDEX
+      ARRAY_PUT_INDEX
+      ARRAY_SIZE
+      ARRAY_INCLUDE
+      ARRAY_EXPLODE
+      
+* Hashes
+      HASH_NEW
+      HASH_GET_KEY
+      HASH_PUT_KEY
+      HASH_SIZE
+      HASH_HAS_KEY
+      HASH_EXPLODE
     
 * Socket I/O    
       NEW_SOCKET_IO
 
 * File I/O
-    x OPEN_FILE
+      FILE_OPEN
     x FILE_PUT
       FILE_GET
       FILE_FLUSH
       FILE_CLOSE
+      
+* Anonymous Functions
+      FUNCTION_PUSH
+      FUNCTION_END
+      FUNCTION_CALL
+      FUNCTION_RETURN
     
 * Fibers
     x FIBER_ID
-      NUM_FIBERS
-    x NEW_FIBER
-    x DELETE_FIBER
-      YIELD_FIBER
+      FIBER_LENGTH
+      FIBER_NEW
+      FIBER_DELETE
+      FIBER_YIELD
       
 * Misc
-    x CALL
-    x RETURN
-    x PUSH_FUNCTION
-    x END_FUNCTION
+      TYPE_OF
     x TO_STRING
     x EXIT
          
