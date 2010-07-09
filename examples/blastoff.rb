@@ -3,15 +3,22 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', 'lib', 'koi.rb'
 include Koi
 
 VM.new.run [
-  PUSH, 11,
-  PUSH, 1,
-  SUBTRACT,
+  PUSH, 1,    # Open STDOUT for writing
+  PUSH, "w",
+  OPEN_FILE,
+  PUSH, 11,   
+  DECREMENT,
   DUP,
-  PRINT,
+  PUSH, 1,
+  SWAP,
+  TO_STRING,
+  FILE_PUT,
+  PUSH, 1,
   PUSH, ", ",
-  PRINT,
+  FILE_PUT,
   DUP, 
-  JUMP_IF, -9,
+  JUMP_IF, -13,
+  PUSH, 1,
   PUSH, "Blast off!\n",
-  PRINT
+  FILE_PUT
 ]

@@ -1,0 +1,111 @@
+= Koi Architecture
+
+This document is a general overview of the Koi VM architecture. It is used internally as a design document and to keep track of what work still needs to be done.
+
+=== Datatypes
+
+* Integer
+* Float
+* String
+* Array (coming later)
+* Hash (coming later)
+
+=== Operations
+
+* Stack
+      PUSH_NIL
+      PUSH_BOOL   boolean
+      PUSH_INT    integer
+      PUSH_FLOAT  float
+      PUSH_STRING string
+      PUSH_ARRAY  array
+      PUSH_HASH   hash
+    x POP
+    x SWAP
+    x DUP
+    x TOP   number_of_stack_items
+
+* Variables
+    x SET_LOCAL   index
+    x GET_LOCAL   index
+    x SET_GLOBAL  index
+    x GET_GLOBAL  index
+    
+* Instruction Pointer
+    x ABS_JUMP
+    x REL_JUMP      destination_offset
+    x JUMP_IF       destination_offset
+    x JUMP_UNLESS   destination_offset
+
+* Integers / Floats
+    x ADD
+    x SUBTRACT
+    x MULTIPLY
+    x DIVIDE
+      MODULO
+    x INCREMENT
+    x DECREMENT
+      EQUAL
+      NOT_EQUAL
+      LESS_THAN
+      GREATER_THAN
+      EQUAL_LESS_THAN
+      EQUAL_GREATER_THAN
+    
+* Strings
+      CONCATENATE
+      LENGTH
+      
+* Arrays
+      ARRAY_NEW
+      ARRAY_GET_INDEX
+      ARRAY_PUT_INDEX
+      ARRAY_SIZE
+      ARRAY_INCLUDE
+      ARRAY_EXPLODE
+      
+* Hashes
+      HASH_NEW
+      HASH_GET_KEY
+      HASH_PUT_KEY
+      HASH_SIZE
+      HASH_HAS_KEY
+      HASH_EXPLODE
+    
+* Socket I/O    
+      NEW_SOCKET_IO
+
+* File I/O
+      FILE_OPEN
+    x FILE_PUT
+      FILE_GET
+      FILE_FLUSH
+      FILE_CLOSE
+      
+* Anonymous Functions
+      FUNCTION_PUSH
+      FUNCTION_END
+      FUNCTION_CALL
+      FUNCTION_RETURN
+    
+* Fibers
+    x FIBER_ID
+      FIBER_LENGTH
+      FIBER_NEW
+      FIBER_DELETE
+      FIBER_YIELD
+      
+* Misc
+      TYPE_OF
+    x TO_STRING
+    x EXIT
+         
+    
+
+=== Exceptions
+
+* StackError
+    Denotes that an error occurred when accessing items on the stack. The most likely cases are that there were not enough items on the stack for an opcode to work, or that the items were not of the correct type.
+    
+* OperandError
+    Denotes that an error occurred when reading an operand for an opcode. This may be because an operand was not supplied, or because it was not of the correct type.

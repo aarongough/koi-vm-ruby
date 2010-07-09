@@ -3,7 +3,7 @@ module Koi
     
     # NO_OP
     def opcode0
-      @state[@state_identifier][:instruction_pointer] += 1
+      this_fiber[:instruction_pointer] += 1
     end
     
   end

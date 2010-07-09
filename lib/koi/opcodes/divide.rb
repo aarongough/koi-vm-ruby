@@ -3,11 +3,12 @@ module Koi
     
     # DIVIDE
     def opcode11
-      raise StackError, "DIVIDE: Not enough items on stack at offset: #{@state[@state_identifier][:instruction_pointer]}. Stack size: #{@state[@state_identifier][:stack].size}" if(@state[@state_identifier][:stack].size < 2)
-      right_operand = @state[@state_identifier][:stack].pop
-      left_operand = @state[@state_identifier][:stack].pop
-      @state[@state_identifier][:stack].push(left_operand / right_operand)
-      @state[@state_identifier][:instruction_pointer] += 1
+      expect_stack_size(2)
+      fiber = this_fiber
+      right_operand = fiber[:stack].pop
+      left_operand = fiber[:stack].pop
+      fiber[:stack].push(left_operand / right_operand)
+      fiber[:instruction_pointer] += 1
     end
     
   end

@@ -1,3 +1,5 @@
+$test = true
+
 require 'rubygems'
 require 'test/unit'
 require 'stringio'
