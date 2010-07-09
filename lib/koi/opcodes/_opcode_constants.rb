@@ -3,7 +3,7 @@ module Koi
   PUSH          = 1
   POP           = 2
   STKSIZE       = 3
-  JUMP          = 5
+  REL_JUMP      = 5
   JUMP_IF       = 6
   JUMP_UNLESS   = 7
   ADD           = 8

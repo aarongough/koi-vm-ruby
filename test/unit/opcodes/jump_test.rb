@@ -1,28 +1,28 @@
 require File.expand_path(File.join(File.dirname(__FILE__), '..', "..", 'test_helper.rb'))
 
-class JumpTest < Test::Unit::TestCase
+class RelJumpTest < Test::Unit::TestCase
 
   include Koi
   
-  test "JUMP should add offset to instruction_pointer" do
+  test "REL_JUMP should add offset to instruction_pointer" do
     state = VM.new.run [
-      JUMP, 5
+      REL_JUMP, 5
     ]
     assert_equal 5, state[:fibers][0][:instruction_pointer]
   end
   
-  test "JUMP should raise OperandError if offset is not an integer" do
+  test "REL_JUMP should raise OperandError if offset is not an integer" do
     assert_raises OperandError do
       VM.new.run [
-        JUMP, "5"
+        REL_JUMP, "5"
       ]
     end
   end
   
-  test "JUMP should raise OperandError if no operand is supplied" do
+  test "REL_JUMP should raise OperandError if no operand is supplied" do
     assert_raises OperandError do
       VM.new.run [
-        JUMP
+        REL_JUMP
       ]
     end
   end

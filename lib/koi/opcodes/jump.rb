@@ -1,7 +1,7 @@
 module Koi
   class VM
     
-    # JUMP
+    # REL_JUMP
     def opcode5
       offset = operand(Integer)
       this_fiber[:instruction_pointer] += offset
