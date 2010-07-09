@@ -28,5 +28,6 @@ module Koi
   ABS_JUMP      = 28
   PUSH_FUNCTION = 29
   END_FUNCTION  = 30
+  CALL          = 31
   EXIT          = 64
 end             
