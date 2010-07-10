@@ -46,7 +46,7 @@ module Koi
   RETURN        = 32
   
   # 160
-  ARRAY_NEW     = 33
+  ARRAY_NEW     = 160
   
   
   EXIT          = 255
