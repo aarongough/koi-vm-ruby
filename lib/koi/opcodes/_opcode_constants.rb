@@ -10,8 +10,8 @@ module Koi
   TOP           = 15
   
   # 40
-  ABS_JUMP      = 28
-  REL_JUMP      = 5
+  ABS_JUMP      = 28 #
+  REL_JUMP      = 5  #
   JUMP_IF       = 6
   JUMP_UNLESS   = 7
   
@@ -24,8 +24,8 @@ module Koi
   DECREMENT     = 21
   
   # 80
-  SET_LOCAL     = 16
-  GET_LOCAL     = 17
+  SET_LOCAL     = 16 #
+  GET_LOCAL     = 17 #
   SET_GLOBAL    = 18
   GET_GLOBAL    = 19
   
@@ -37,16 +37,18 @@ module Koi
   # 120
   FILE_OPEN     = 25
   FILE_PUT      = 26
-  TO_STRING     = 27
 
   # 140
-  PUSH_FUNCTION = 29
-  END_FUNCTION  = 30
-  CALL          = 31
-  RETURN        = 32
+  PUSH_FUNCTION = 29 #
+  END_FUNCTION  = 30 #
+  CALL          = 31 #
+  RETURN        = 32 #
   
   # 160
   ARRAY_NEW     = 160
+  
+  # 180
+  TO_STRING     = 27
   
   
   EXIT          = 255
