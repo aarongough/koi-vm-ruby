@@ -67,7 +67,7 @@ This document is a general overview of the Koi VM architecture. It is used inter
       
 * Hashes
     x HASH_NEW
-      HASH_GET_KEY
+    x HASH_GET_KEY
       HASH_PUT_KEY
       HASH_SIZE
       HASH_HAS_KEY
