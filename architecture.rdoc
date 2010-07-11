@@ -60,6 +60,7 @@ This document is a general overview of the Koi VM architecture. It is used inter
     x ARRAY_NEW
     x ARRAY_GET_INDEX
       ARRAY_PUT_INDEX
+      ARRAY_PUSH
       ARRAY_SIZE
       ARRAY_INCLUDE
       ARRAY_EXPLODE

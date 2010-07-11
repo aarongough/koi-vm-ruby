@@ -47,6 +47,7 @@ module Koi
   # 160             
   ARRAY_NEW         = 160
   ARRAY_GET_INDEX   = 161
+  ARRAY_PUT_INDEX   = 162
   
   # 180
   TO_STRING         = 27
