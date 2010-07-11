@@ -50,7 +50,12 @@ module Koi
   ARRAY_PUT_INDEX   = 162
   
   # 180
+  HASH_NEW          = 180
+  
+  # 200
   TO_STRING         = 27
+  
+  
   
   
   EXIT              = 255
