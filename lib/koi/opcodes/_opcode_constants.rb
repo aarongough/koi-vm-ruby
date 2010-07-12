@@ -52,6 +52,7 @@ module Koi
   # 180
   HASH_NEW          = 180
   HASH_GET_KEY      = 181
+  HASH_PUT_KEY      = 182
   
   # 200
   TO_STRING         = 27
