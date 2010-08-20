@@ -30,9 +30,6 @@ module Koi
   GET_GLOBAL        = 19
                     
   # 100             
-  FIBER_ID          = 22
-  FIBER_NEW         = 23
-  FIBER_DELETE      = 24
                     
   # 120             
   FILE_OPEN         = 25
@@ -45,14 +42,8 @@ module Koi
   RETURN            = 32 #
                     
   # 160             
-  ARRAY_NEW         = 160
-  ARRAY_GET_INDEX   = 161
-  ARRAY_PUT_INDEX   = 162
   
   # 180
-  HASH_NEW          = 180
-  HASH_GET_KEY      = 181
-  HASH_PUT_KEY      = 182
   
   # 200
   TO_STRING         = 27
