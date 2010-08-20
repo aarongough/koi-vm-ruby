@@ -6,22 +6,20 @@ module Koi
     def initialize(state = {}, opcodes = [])
       default_state = {
         :opcodes => opcodes,
-        :fiber_id => 0,
         :globals => [],
-        :fibers => [{
+        :fiber => {
           :stack => [],
-          :locals => [],
+          :locals => {},
           :instruction_pointer => 0
-        }]
+        }
       }
       @state = default_state.merge(state)
       @files = {} 
-      raise ArgumentError, "state[:fibers][x] must be a hash" if(@state[:fibers].map{|x| x.is_a?(Hash)}.include?(false))
-      raise ArgumentError, "state[:fibers][x][:stack] must be an Array" if(@state[:fibers].map{|x| x[:stack].is_a?(Array)}.include?(false))
-      raise ArgumentError, "state[:fibers][x][:instruction_pointer] must be an Integer" if(@state[:fibers].map{|x| x[:instruction_pointer].is_a?(Integer)}.include?(false))
+      raise ArgumentError, "state[:fibers][x] must be a hash" unless(@state[:fiber].is_a?(Hash))
+      raise ArgumentError, "state[:fibers][x][:stack] must be an Array" unless(@state[:fiber][:stack].is_a?(Array))
+      raise ArgumentError, "state[:fibers][x][:instruction_pointer] must be an Integer" unless(@state[:fiber][:instruction_pointer].is_a?(Integer))
       raise ArgumentError, "state[:globals] must be an array" unless(@state[:globals].is_a?(Array))
       raise ArgumentError, "state[:opcodes] must be an array" unless(@state[:opcodes].is_a?(Array))
-      raise ArgumentError, "state[:fiber_id] must be an integer" unless(@state[:fiber_id].is_a?(Integer))
     end
   
     def run(opcodes = [])
