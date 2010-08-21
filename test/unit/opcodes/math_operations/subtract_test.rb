@@ -45,7 +45,7 @@ class SubtractTest < Test::Unit::TestCase
       vm = VM.new
       vm.data_stack = [1]
       vm.run [
-        ADD
+        SUBTRACT
       ]
     end
   end
@@ -54,7 +54,7 @@ class SubtractTest < Test::Unit::TestCase
     assert_raises StackError do
       vm = VM.new
       vm.run [
-        ADD
+        SUBTRACT
       ]
     end
   end
