@@ -25,9 +25,9 @@ module Koi
     def run(opcodes = [])
       @state[:opcodes].concat(opcodes)
       opcode_size = @state[:opcodes].size
-      while (@state[:fibers][@state[:fiber_id]][:instruction_pointer] < opcode_size)
+      while (@state[:fiber][:instruction_pointer] < opcode_size)
         begin
-          break if(send("opcode" + @state[:opcodes][@state[:fibers][@state[:fiber_id]][:instruction_pointer]].to_s) == true)
+          break if(send("opcode" + @state[:opcodes][@state[:fiber][:instruction_pointer]].to_s) == true)
         rescue Exception => e
           @state.delete(:opcodes)
           puts "\n\n" + @state.inspect + "\n\n" unless(defined?($test) && $test == true)
