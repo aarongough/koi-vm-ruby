@@ -32,7 +32,7 @@ module Koi
       while (@state[:fiber][:instruction_pointer] < opcode_size)
         begin
           break if(@@instruction[@state[:opcodes][@state[:fiber][:instruction_pointer]]].call(self) == true)
-        rescue Exception => e
+        rescue NoMethodError
           @state.delete(:opcodes)
           puts "\n\n" + @state.inspect + "\n\n" unless(defined?($test) && $test == true)
           raise 

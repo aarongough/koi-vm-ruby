@@ -16,6 +16,10 @@ module Koi
     def instruction_pointer=(ip)
       @state[:fiber][:instruction_pointer] = ip
     end
+    
+    def opcodes
+      return @state[:opcodes]
+    end
   
   end
 end
