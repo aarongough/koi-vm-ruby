@@ -1,7 +1,7 @@
 module Koi
-  _NIL      = 0
-  _BOOL     = 1
-  _INTEGER  = 2
-  _FLOAT    = 3
-  _STRING   = 4
+  NIL_      = 0
+  BOOL_     = 1
+  INTEGER_  = 2
+  FLOAT_    = 3
+  STRING_   = 4
 end

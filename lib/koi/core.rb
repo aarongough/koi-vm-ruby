@@ -1,6 +1,8 @@
 module Koi
   class VM
     
+    @@instruction = []
+    
     attr_accessor :state, :files
     
     def initialize(state = {}, opcodes = [])
@@ -29,7 +31,7 @@ module Koi
       opcode_size = @state[:opcodes].size
       while (@state[:fiber][:instruction_pointer] < opcode_size)
         begin
-          break if(send("opcode" + @state[:opcodes][@state[:fiber][:instruction_pointer]].to_s) == true)
+          break if(@@instruction[@state[:opcodes][@state[:fiber][:instruction_pointer]]].call(self) == true)
         rescue Exception => e
           @state.delete(:opcodes)
           puts "\n\n" + @state.inspect + "\n\n" unless(defined?($test) && $test == true)

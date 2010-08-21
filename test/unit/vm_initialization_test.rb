@@ -24,7 +24,9 @@ class VmInitializationTest < Test::Unit::TestCase
       VM.new({
         :globals => [],
         :fiber => {
-          :stack => [],
+          :data_stack => [],
+          :return_stack => [],
+          :locals => {},
           :instruction_pointer => 0
         }
       })
