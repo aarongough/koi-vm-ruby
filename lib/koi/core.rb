@@ -12,7 +12,7 @@ module Koi
         :fiber => {
           :data_stack => [],
           :return_stack => [],
-          :locals => {},
+          :locals => [],
           :instruction_pointer => 0
         }
       }

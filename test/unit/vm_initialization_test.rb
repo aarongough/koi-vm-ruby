@@ -12,7 +12,7 @@ class VmInitializationTest < Test::Unit::TestCase
       :fiber => {
         :data_stack => [],
         :return_stack => [],
-        :locals => {},
+        :locals => [],
         :instruction_pointer => 0
       }
     }
@@ -26,7 +26,7 @@ class VmInitializationTest < Test::Unit::TestCase
         :fiber => {
           :data_stack => [],
           :return_stack => [],
-          :locals => {},
+          :locals => [],
           :instruction_pointer => 0
         }
       })
