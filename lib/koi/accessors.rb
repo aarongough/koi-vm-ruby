@@ -20,6 +20,28 @@ module Koi
     def opcodes
       return @state[:opcodes]
     end
+    
+    def locals
+      return @state[:fiber][:locals][@state[:fiber][:level]]
+    end
+    
+    def globals
+      return @state[:globals]
+    end
+    
+    def increment_scope
+      @state[:fiber][:level] += 1
+      @state[:fiber][:locals][@state[:fiber][:level]] = @state[:fiber][:locals][@state[:fiber][:level] - 1].dup
+    end
+    
+    def decrement_scope
+      @state[:fiber][:locals].delete_at(@state[:fiber][:level])
+      @state[:fiber][:level] -= 1
+    end
+    
+    def reload_scope
+      @state[:fiber][:locals][@state[:fiber][:level]] = {}
+    end
   
   end
 end

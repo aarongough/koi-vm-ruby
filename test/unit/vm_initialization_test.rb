@@ -8,12 +8,13 @@ class VmInitializationTest < Test::Unit::TestCase
     vm = VM.new
     default_state = {
       :opcodes => [],
-      :globals => [],
+      :globals => {},
       :fiber => {
         :data_stack => [],
         :return_stack => [],
         :locals => [],
-        :instruction_pointer => 0
+        :instruction_pointer => 0,
+        :level => 0
       }
     }
     assert_equal default_state, vm.state
@@ -22,12 +23,13 @@ class VmInitializationTest < Test::Unit::TestCase
   test "VM.new with valid state should not raise error" do
     assert_nothing_raised do
       VM.new({
-        :globals => [],
+        :globals => {},
         :fiber => {
           :data_stack => [],
           :return_stack => [],
           :locals => [],
-          :instruction_pointer => 0
+          :instruction_pointer => 0,
+          :level => 0
         }
       })
     end
