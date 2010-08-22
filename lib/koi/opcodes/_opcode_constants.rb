@@ -16,6 +16,7 @@ module Koi
   SWAP          = 41
   DUP           = 42
   STKSIZE       = 43
+  TYPEOF        = 44
   
   # 60
   ADD           = 60
@@ -26,38 +27,31 @@ module Koi
   # 80
   CONCAT        = 80
   STRLEN        = 81
+  TO_STRING     = 82
   
   # 100
-  TO_STRING     = 100
+  EQUAL         = 100
+  LESS_THAN     = 101
+  MORE_THAN     = 102
   
   # 120
-  TYPEOF        = 120
+  PRINT         = 120
+  GETS          = 121
   
   # 140
-  EQUAL         = 140
-  LESS_THAN     = 141
-  MORE_THAN     = 142
+  SET_LOCAL     = 140
+  GET_LOCAL     = 141
+  SET_GLOBAL    = 142
+  GET_GLOBAL    = 143
   
   # 160
-  PRINT         = 160
-  GETS          = 161
-  
-  # 180
-  SET_LOCAL     = 180
-  GET_LOCAL     = 181
-  SET_GLOBAL    = 182
-  GET_GLOBAL    = 183
-  
-  # 200
-  PUSH_FUNCTION = 200
-  END_FUNCTION  = 201
-  CALL          = 202
-  RETURN        = 203
-  TAILCALL      = 204
-  
-  # 220
-  NO_OP         = 220
+  PUSH_FUNCTION = 160
+  END_FUNCTION  = 161
+  CALL          = 162
+  RETURN        = 163
+  TAILCALL      = 164
   
   # 240
+  NO_OP         = 240
   EXIT          = 255
 end             
