@@ -33,7 +33,7 @@ module Koi
   # 100
   EQUAL         = 100
   LESS_THAN     = 101
-  MORE_THAN     = 102
+  GREATER_THAN  = 102
   
   # 120
   PRINT         = 120
