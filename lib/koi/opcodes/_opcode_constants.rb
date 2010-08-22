@@ -17,6 +17,7 @@ module Koi
   DUP           = 42
   STKSIZE       = 43
   TYPEOF        = 44
+  TOP           = 45
   
   # 60
   ADD           = 60
