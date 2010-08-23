@@ -8,13 +8,14 @@ class VmInitializationTest < Test::Unit::TestCase
     vm = VM.new
     default_state = {
       :opcodes => [],
-      :fiber_id => 0,
-      :globals => [],
-      :fibers => [{
-        :stack => [],
-        :locals => [],
-        :instruction_pointer => 0
-      }]
+      :globals => {},
+      :fiber => {
+        :data_stack => [],
+        :return_stack => [],
+        :locals => [{}],
+        :instruction_pointer => 0,
+        :level => 0
+      }
     }
     assert_equal default_state, vm.state
   end
@@ -22,11 +23,14 @@ class VmInitializationTest < Test::Unit::TestCase
   test "VM.new with valid state should not raise error" do
     assert_nothing_raised do
       VM.new({
-        :globals => [],
-        :fibers => [{
-          :stack => [],
-          :instruction_pointer => 0
-        }]
+        :globals => {},
+        :fiber => {
+          :data_stack => [],
+          :return_stack => [],
+          :locals => [{}],
+          :instruction_pointer => 0,
+          :level => 0
+        }
       })
     end
   end
@@ -46,9 +50,9 @@ class VmInitializationTest < Test::Unit::TestCase
   test "VM.new should raise ArgumentError if given fiber with :stack that is not an array" do
     assert_raises ArgumentError do
       VM.new({
-        :fibers => [{
+        :fiber => {
           :stack => 0
-        }]
+        }
       })
     end
   end
@@ -56,9 +60,9 @@ class VmInitializationTest < Test::Unit::TestCase
   test "VM.new should raise ArgumentError if given fiber with :instruction_pointer that is not an integer" do
     assert_raises ArgumentError do
       VM.new({
-        :fibers => [{
+        :fiber => {
           :instruction_pointer => []
-        }]
+        }
       })
     end
   end
@@ -75,14 +79,6 @@ class VmInitializationTest < Test::Unit::TestCase
     assert_raises ArgumentError do
       VM.new({
         :opcodes => 1
-      })
-    end
-  end
-  
-  test "VM.new should raise ArgumentError if given :fiber_id that is not an array" do
-    assert_raises ArgumentError do
-      VM.new({
-        :fiber_id => []
       })
     end
   end

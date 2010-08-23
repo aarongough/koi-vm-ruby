@@ -58,16 +58,17 @@ This document is a general overview of the Koi VM architecture. It is used inter
       
 * Arrays
     x ARRAY_NEW
-      ARRAY_GET_INDEX
-      ARRAY_PUT_INDEX
+    x ARRAY_GET_INDEX
+    x ARRAY_PUT_INDEX
+      ARRAY_PUSH
       ARRAY_SIZE
       ARRAY_INCLUDE
       ARRAY_EXPLODE
       
 * Hashes
-      HASH_NEW
-      HASH_GET_KEY
-      HASH_PUT_KEY
+    x HASH_NEW
+    x HASH_GET_KEY
+    x HASH_PUT_KEY
       HASH_SIZE
       HASH_HAS_KEY
       HASH_EXPLODE

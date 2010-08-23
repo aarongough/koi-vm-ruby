@@ -1,36 +1,40 @@
 module Koi
   class VM
     
+    @@instruction = []
+    
     attr_accessor :state, :files
     
     def initialize(state = {}, opcodes = [])
       default_state = {
         :opcodes => opcodes,
-        :fiber_id => 0,
-        :globals => [],
-        :fibers => [{
-          :stack => [],
-          :locals => [],
-          :instruction_pointer => 0
-        }]
+        :globals => {},
+        :fiber => {
+          :data_stack => [],
+          :return_stack => [],
+          :locals => [{}],
+          :instruction_pointer => 0,
+          :level => 0
+        }
       }
       @state = default_state.merge(state)
       @files = {} 
-      raise ArgumentError, "state[:fibers][x] must be a hash" if(@state[:fibers].map{|x| x.is_a?(Hash)}.include?(false))
-      raise ArgumentError, "state[:fibers][x][:stack] must be an Array" if(@state[:fibers].map{|x| x[:stack].is_a?(Array)}.include?(false))
-      raise ArgumentError, "state[:fibers][x][:instruction_pointer] must be an Integer" if(@state[:fibers].map{|x| x[:instruction_pointer].is_a?(Integer)}.include?(false))
-      raise ArgumentError, "state[:globals] must be an array" unless(@state[:globals].is_a?(Array))
+      raise ArgumentError, "state[:fibers][x] must be a hash" unless(@state[:fiber].is_a?(Hash))
+      raise ArgumentError, "state[:fibers][x][:stack] must be an Array" unless(@state[:fiber][:data_stack].is_a?(Array))
+      raise ArgumentError, "state[:fibers][x][:stack] must be an Array" unless(@state[:fiber][:return_stack].is_a?(Array))
+      raise ArgumentError, "state[:fibers][x][:instruction_pointer] must be an Integer" unless(@state[:fiber][:instruction_pointer].is_a?(Integer))
+      raise ArgumentError, "state[:fibers][x][:level] must be an Integer" unless(@state[:fiber][:level].is_a?(Integer))
+      raise ArgumentError, "state[:globals] must be a hash" unless(@state[:globals].is_a?(Hash))
       raise ArgumentError, "state[:opcodes] must be an array" unless(@state[:opcodes].is_a?(Array))
-      raise ArgumentError, "state[:fiber_id] must be an integer" unless(@state[:fiber_id].is_a?(Integer))
     end
   
     def run(opcodes = [])
       @state[:opcodes].concat(opcodes)
       opcode_size = @state[:opcodes].size
-      while (@state[:fibers][@state[:fiber_id]][:instruction_pointer] < opcode_size)
+      while (@state[:fiber][:instruction_pointer] < opcode_size)
         begin
-          break if(send("opcode" + @state[:opcodes][@state[:fibers][@state[:fiber_id]][:instruction_pointer]].to_s) == true)
-        rescue Exception => e
+          break if(@@instruction[@state[:opcodes][@state[:fiber][:instruction_pointer]]].call(self) == true)
+        rescue NoMethodError
           @state.delete(:opcodes)
           puts "\n\n" + @state.inspect + "\n\n" unless(defined?($test) && $test == true)
           raise 

@@ -1,55 +1,58 @@
 module Koi
-  NO_OP         = 0
+  # 0
+  PUSH_NIL      = 0
+  PUSH_BOOL     = 1
+  PUSH_INT      = 2
+  PUSH_FLOAT    = 3
+  PUSH_STRING   = 4
   
   # 20
-  PUSH          = 1
-  POP           = 2
-  STKSIZE       = 3
-  DUP           = 12
-  SWAP          = 14
-  TOP           = 15
+  JUMP          = 20
+  JUMP_IF       = 21
+  JUMP_UNLESS   = 22
   
   # 40
-  ABS_JUMP      = 28 #
-  REL_JUMP      = 5  #
-  JUMP_IF       = 6
-  JUMP_UNLESS   = 7
+  POP           = 40
+  SWAP          = 41
+  DUP           = 42
+  STKSIZE       = 43
+  TYPEOF        = 44
+  TOP           = 45
   
   # 60
-  ADD           = 8
-  SUBTRACT      = 9
-  MULTIPLY      = 10
-  DIVIDE        = 11
-  INCREMENT     = 20
-  DECREMENT     = 21
+  ADD           = 60
+  SUBTRACT      = 61
+  MULTIPLY      = 62
+  DIVIDE        = 63
   
   # 80
-  SET_LOCAL     = 16 #
-  GET_LOCAL     = 17 #
-  SET_GLOBAL    = 18
-  GET_GLOBAL    = 19
+  CONCAT        = 80
+  STRLEN        = 81
+  TO_STRING     = 82
   
   # 100
-  FIBER_ID      = 22
-  FIBER_NEW     = 23
-  FIBER_DELETE  = 24
+  EQUAL         = 100
+  LESS_THAN     = 101
+  GREATER_THAN  = 102
   
   # 120
-  FILE_OPEN     = 25
-  FILE_PUT      = 26
-
+  PRINT         = 120
+  GETS          = 121
+  
   # 140
-  PUSH_FUNCTION = 29 #
-  END_FUNCTION  = 30 #
-  CALL          = 31 #
-  RETURN        = 32 #
+  SET_LOCAL     = 140
+  GET_LOCAL     = 141
+  SET_GLOBAL    = 142
+  GET_GLOBAL    = 143
   
   # 160
-  ARRAY_NEW     = 160
+  PUSH_FUNCTION = 160
+  END_FUNCTION  = 161
+  CALL          = 162
+  RETURN        = 163
+  TAILCALL      = 164
   
-  # 180
-  TO_STRING     = 27
-  
-  
+  # 240
+  NO_OP         = 240
   EXIT          = 255
 end             
