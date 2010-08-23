@@ -54,6 +54,10 @@ module Koi
     def level
       return @state[:fiber][:level]
     end
+    
+    def level=(level)
+      @state[:fiber][:level] = level
+    end
   
   end
 end
