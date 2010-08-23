@@ -9,6 +9,14 @@ module Koi
       @state[:fiber][:data_stack] = stack
     end
     
+    def return_stack
+      return @state[:fiber][:return_stack]
+    end
+    
+    def return_stack=(stack)
+      @state[:fiber][:return_stack] = stack
+    end
+    
     def instruction_pointer
       return @state[:fiber][:instruction_pointer]
     end
@@ -41,6 +49,10 @@ module Koi
     
     def reload_scope
       @state[:fiber][:locals][@state[:fiber][:level]] = {}
+    end
+    
+    def level
+      return @state[:fiber][:level]
     end
   
   end
