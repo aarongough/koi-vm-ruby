@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{koi-vm}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Aaron Gough"]
@@ -34,6 +34,7 @@ Gem::Specification.new do |s|
      "lib/koi-vm/opcodes/_value_constants.rb",
      "lib/koi-vm/opcodes/comparative_operations/equal.rb",
      "lib/koi-vm/opcodes/comparative_operations/greater_than.rb",
+     "lib/koi-vm/opcodes/comparative_operations/invert.rb",
      "lib/koi-vm/opcodes/comparative_operations/less_than.rb",
      "lib/koi-vm/opcodes/control_operations/exit.rb",
      "lib/koi-vm/opcodes/control_operations/no_op.rb",
@@ -75,6 +76,7 @@ Gem::Specification.new do |s|
      "test/test_helper.rb",
      "test/unit/opcodes/comparative_operations/equal_test.rb",
      "test/unit/opcodes/comparative_operations/greater_than_test.rb",
+     "test/unit/opcodes/comparative_operations/invert_test.rb",
      "test/unit/opcodes/comparative_operations/less_than_test.rb",
      "test/unit/opcodes/control_operations/exit_test.rb",
      "test/unit/opcodes/control_operations/no_op_test.rb",
@@ -122,6 +124,7 @@ Gem::Specification.new do |s|
      "test/test_helper.rb",
      "test/unit/opcodes/comparative_operations/equal_test.rb",
      "test/unit/opcodes/comparative_operations/greater_than_test.rb",
+     "test/unit/opcodes/comparative_operations/invert_test.rb",
      "test/unit/opcodes/comparative_operations/less_than_test.rb",
      "test/unit/opcodes/control_operations/exit_test.rb",
      "test/unit/opcodes/control_operations/no_op_test.rb",
