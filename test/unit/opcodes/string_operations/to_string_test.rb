@@ -2,7 +2,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'te
 
 class ToStringTest < Test::Unit::TestCase
 
-  include Koi
+  include KoiVM
   
   test "should push string representing topmost stack item onto the stack (nil)" do
     vm = VM.new

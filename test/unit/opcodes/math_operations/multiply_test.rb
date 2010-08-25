@@ -2,7 +2,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'te
 
 class MultiplyTest < Test::Unit::TestCase
 
-  include Koi
+  include KoiVM
   
   test "should multiply top two integers on stack" do
     vm = VM.new

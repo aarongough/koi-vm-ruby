@@ -2,7 +2,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'te
 
 class GetLocalTest < Test::Unit::TestCase
 
-  include Koi
+  include KoiVM
   
   test "should get local variable at index x and push onto stack" do
     vm = VM.new

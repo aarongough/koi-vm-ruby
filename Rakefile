@@ -8,9 +8,9 @@ task :default => :test
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gemspec|
-    gemspec.name = "koi"
-    gemspec.summary = "An extremely simple Virtual Machine written in Ruby"
-    gemspec.description = "An extremely simple Virtual Machine written in Ruby. Why would anyone write such a thing? Because it's fun, and because it's a great learning tool."
+    gemspec.name = "koi-vm"
+    gemspec.summary = "A prototype Virtual Machine written in Ruby"
+    gemspec.description = "A prototype Virtual Machine written in Ruby. Why would anyone write such a thing? Because it's fun, and it's a great learning tool."
     gemspec.email = "aaron@aarongough.com"
     gemspec.homepage = "https://github.com/aarongough/koi"
     gemspec.authors = ["Aaron Gough"]

@@ -2,7 +2,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'te
 
 class TailcallTest < Test::Unit::TestCase
 
-  include Koi
+  include KoiVM
   
   test "should pass execution to new function without altering return stack, and reload scope" do
     vm = VM.new

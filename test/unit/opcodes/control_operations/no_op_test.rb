@@ -2,7 +2,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'te
 
 class NoOpTest < Test::Unit::TestCase
 
-  include Koi
+  include KoiVM
   
   test "should perform no-op" do
     vm = VM.new

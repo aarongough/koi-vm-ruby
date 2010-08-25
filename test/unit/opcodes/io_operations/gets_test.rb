@@ -2,7 +2,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'te
 
 class GetsTest < Test::Unit::TestCase
 
-  include Koi
+  include KoiVM
   
   require "stringio"
   

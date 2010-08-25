@@ -2,7 +2,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'te
 
 class JumpUnlessTest < Test::Unit::TestCase
 
-  include Koi
+  include KoiVM
   
   test "should not set instruction_pointer to 10 when data_stack[0] != (false || nil)" do
     [[INTEGER_, 0], [STRING_, ""], [BOOL_, true]].each do |x|

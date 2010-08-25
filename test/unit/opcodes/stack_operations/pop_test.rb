@@ -2,7 +2,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'te
 
 class PopTest < Test::Unit::TestCase
 
-  include Koi
+  include KoiVM
   
   test "should pop a single item off the data stack" do
     (1..10).each do |x|
