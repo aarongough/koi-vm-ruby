@@ -34,6 +34,7 @@ module KoiVM
   EQUAL         = 100
   LESS_THAN     = 101
   GREATER_THAN  = 102
+  INVERT        = 103
   
   # 120
   PRINT         = 120
