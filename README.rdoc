@@ -7,7 +7,7 @@ KoiVM is an extremely simple prototype Virtual Machine written in Ruby. It was c
 The standard 'Hello world!', KoiVM style:
   
   require 'koi'
-  include Koi
+  include KoiVM
   
   VM.new.run [
     PUSH_STRING, "Hello World!\n",
@@ -19,7 +19,7 @@ The standard 'Hello world!', KoiVM style:
 And an old-school 'Blast off' example:
 
   require 'koi'
-  include Koi
+  include KoiVM
   
   VM.new.run [
     PUSH_INT, 11,

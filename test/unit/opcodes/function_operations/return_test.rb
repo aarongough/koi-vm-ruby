@@ -2,7 +2,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'te
 
 class ReturnTest < Test::Unit::TestCase
 
-  include Koi
+  include KoiVM
   
   test "should pass execution to topmost address on return stack and decrement scope" do
     vm = VM.new

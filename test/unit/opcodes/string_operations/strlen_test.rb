@@ -2,7 +2,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'te
 
 class StrlenTest < Test::Unit::TestCase
 
-  include Koi
+  include KoiVM
   
   test "should push length of topmost string onto stack 1" do
     vm = VM.new

@@ -2,7 +2,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'te
 
 class ConcatTest < Test::Unit::TestCase
 
-  include Koi
+  include KoiVM
   
   test "should add top two strings on stack" do
     vm = VM.new

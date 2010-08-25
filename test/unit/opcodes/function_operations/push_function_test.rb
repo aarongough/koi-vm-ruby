@@ -2,7 +2,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'te
 
 class PushFunctionTest < Test::Unit::TestCase
 
-  include Koi
+  include KoiVM
   
   test "should push function reference onto stack" do
     vm = VM.new

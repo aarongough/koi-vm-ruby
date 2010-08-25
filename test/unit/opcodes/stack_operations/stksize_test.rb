@@ -2,7 +2,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'te
 
 class StksizeTest < Test::Unit::TestCase
 
-  include Koi
+  include KoiVM
   
   test "should push an integer onto the stack representing the number of entries on the stack before the call" do
     (1..10).each do |x|

@@ -2,7 +2,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'te
 
 class GreaterThanTest < Test::Unit::TestCase
 
-  include Koi
+  include KoiVM
   
   test "should push bool value onto stack representing whether stack[-2] > stack[-1] (2 2)" do
     vm = VM.new
