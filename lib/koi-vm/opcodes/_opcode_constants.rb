@@ -53,6 +53,9 @@ module KoiVM
   RETURN        = 163
   TAILCALL      = 164
   
+  # 180
+  PUSH_HASH     = 180
+  
   # 240
   NO_OP         = 240
   EXIT          = 255
