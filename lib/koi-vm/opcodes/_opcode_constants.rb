@@ -57,6 +57,7 @@ module KoiVM
   PUSH_HASH     = 180
   SET_KEY       = 181
   GET_KEY       = 182
+  HAS_KEY       = 183
   
   # 240
   NO_OP         = 240
