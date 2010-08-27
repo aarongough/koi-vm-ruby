@@ -58,6 +58,7 @@ module KoiVM
   SET_KEY       = 181
   GET_KEY       = 182
   HAS_KEY       = 183
+  LENGTH        = 184
   
   # 240
   NO_OP         = 240
