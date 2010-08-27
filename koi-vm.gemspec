@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{koi-vm}
-  s.version = "0.0.3"
+  s.version = "0.0.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Aaron Gough"]
@@ -45,6 +45,13 @@ Gem::Specification.new do |s|
      "lib/koi-vm/opcodes/function_operations/push_function.rb",
      "lib/koi-vm/opcodes/function_operations/return.rb",
      "lib/koi-vm/opcodes/function_operations/tailcall.rb",
+     "lib/koi-vm/opcodes/hash_operations/get_key.rb",
+     "lib/koi-vm/opcodes/hash_operations/has_key.rb",
+     "lib/koi-vm/opcodes/hash_operations/length.rb",
+     "lib/koi-vm/opcodes/hash_operations/num_pairs.rb",
+     "lib/koi-vm/opcodes/hash_operations/pairs.rb",
+     "lib/koi-vm/opcodes/hash_operations/push_hash.rb",
+     "lib/koi-vm/opcodes/hash_operations/set_key.rb",
      "lib/koi-vm/opcodes/io_operations/gets.rb",
      "lib/koi-vm/opcodes/io_operations/print.rb",
      "lib/koi-vm/opcodes/math_operations/add.rb",
@@ -87,6 +94,13 @@ Gem::Specification.new do |s|
      "test/unit/opcodes/function_operations/push_function_test.rb",
      "test/unit/opcodes/function_operations/return_test.rb",
      "test/unit/opcodes/function_operations/tailcall_test.rb",
+     "test/unit/opcodes/hash_operations/get_key_test.rb",
+     "test/unit/opcodes/hash_operations/has_key_test.rb",
+     "test/unit/opcodes/hash_operations/length_test.rb",
+     "test/unit/opcodes/hash_operations/num_pairs_test.rb",
+     "test/unit/opcodes/hash_operations/pairs_test.rb",
+     "test/unit/opcodes/hash_operations/push_hash_test.rb",
+     "test/unit/opcodes/hash_operations/set_key_test.rb",
      "test/unit/opcodes/io_operations/gets_test.rb",
      "test/unit/opcodes/io_operations/print_test.rb",
      "test/unit/opcodes/math_operations/add_test.rb",
@@ -135,6 +149,13 @@ Gem::Specification.new do |s|
      "test/unit/opcodes/function_operations/push_function_test.rb",
      "test/unit/opcodes/function_operations/return_test.rb",
      "test/unit/opcodes/function_operations/tailcall_test.rb",
+     "test/unit/opcodes/hash_operations/get_key_test.rb",
+     "test/unit/opcodes/hash_operations/has_key_test.rb",
+     "test/unit/opcodes/hash_operations/length_test.rb",
+     "test/unit/opcodes/hash_operations/num_pairs_test.rb",
+     "test/unit/opcodes/hash_operations/pairs_test.rb",
+     "test/unit/opcodes/hash_operations/push_hash_test.rb",
+     "test/unit/opcodes/hash_operations/set_key_test.rb",
      "test/unit/opcodes/io_operations/gets_test.rb",
      "test/unit/opcodes/io_operations/print_test.rb",
      "test/unit/opcodes/math_operations/add_test.rb",
