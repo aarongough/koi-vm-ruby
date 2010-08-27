@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{koi-vm}
-  s.version = "0.0.2"
+  s.version = "0.0.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Aaron Gough"]
-  s.date = %q{2010-08-25}
+  s.date = %q{2010-08-27}
   s.description = %q{A prototype Virtual Machine written in Ruby. Why would anyone write such a thing? Because it's fun, and it's a great learning tool.}
   s.email = %q{aaron@aarongough.com}
   s.extra_rdoc_files = [
