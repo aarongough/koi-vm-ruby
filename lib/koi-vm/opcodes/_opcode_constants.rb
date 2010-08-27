@@ -60,6 +60,7 @@ module KoiVM
   HAS_KEY       = 183
   LENGTH        = 184
   NUM_PAIRS     = 185
+  PAIRS         = 186
   
   # 240
   NO_OP         = 240
