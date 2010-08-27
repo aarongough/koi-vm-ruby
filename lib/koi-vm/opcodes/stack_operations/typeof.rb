@@ -9,6 +9,8 @@ module KoiVM
       vm.data_stack.push([STRING_, "integer"]) if(value[0] == INTEGER_)
       vm.data_stack.push([STRING_, "float"]) if(value[0] == FLOAT_)
       vm.data_stack.push([STRING_, "string"]) if(value[0] == STRING_)
+      vm.data_stack.push([STRING_, "hash"]) if(value[0] == HASH_)
+      vm.data_stack.push([STRING_, "function"]) if(value[0] == FUNCTION_)
       vm.instruction_pointer = vm.instruction_pointer + 1
     end
     

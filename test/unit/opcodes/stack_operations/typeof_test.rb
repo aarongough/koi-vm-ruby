@@ -49,6 +49,24 @@ class TypeofTest < Test::Unit::TestCase
     assert_equal [[STRING_, "string"]], vm.data_stack
   end
   
+  test "should push string representing type of topmost stack item onto the stack (hash)" do
+    vm = VM.new
+    vm.data_stack = [[HASH_, {}]]
+    vm.run [
+      TYPEOF
+    ]
+    assert_equal [[STRING_, "hash"]], vm.data_stack
+  end
+  
+  test "should push string representing type of topmost stack item onto the stack (function)" do
+    vm = VM.new
+    vm.data_stack = [[FUNCTION_, 12]]
+    vm.run [
+      TYPEOF
+    ]
+    assert_equal [[STRING_, "function"]], vm.data_stack
+  end
+  
   test "should raise StackError if there are no items on the stack" do
     assert_raises StackError do
       vm = VM.new
