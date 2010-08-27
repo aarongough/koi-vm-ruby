@@ -4,6 +4,7 @@ module KoiVM
   INTEGER_   = 2
   FLOAT_     = 3
   STRING_    = 4
+  HASH_      = 5
   
   
   FUNCTION_  = 16
