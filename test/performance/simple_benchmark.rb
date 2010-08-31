@@ -5,7 +5,7 @@ class SimpleBenchmark < Test::Unit::TestCase
   require "benchmark"
   require "stringio"
   require 'ruby-prof'
-  include KoiVM
+  include KoiVMRuby
   
   vm = VM.new
   

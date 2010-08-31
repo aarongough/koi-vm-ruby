@@ -2,7 +2,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'te
 
 class SubtractTest < Test::Unit::TestCase
 
-  include KoiVM
+  include KoiVMRuby
   
   test "should subtract top two integers on stack" do
     vm = VM.new

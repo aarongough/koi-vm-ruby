@@ -1,13 +1,13 @@
-= KoiVM
+= koi-vm-ruby
 
-KoiVM is an extremely simple prototype Virtual Machine written in Ruby. It was created with learning in mind and is written so that it is easy to understand and play with.
+Koi-vm-ruby is a simple proof-of-concept Virtual Machine for the {Koi}[http://github.com/aarongough/koi] programming language written in Ruby. It was created with learning in mind and is written so that it is easy to understand and play with. This virtual machine implements an instruction set specifically designed for running the Koi programming language. A compiler for producing compatible bytecode can be found at the {koi-reference-compiler}[http://github.com/aarongough/koi-reference-compiler].
 
 === Examples
 
 The standard 'Hello world!', KoiVM style:
   
   require 'koi'
-  include KoiVM
+  include KoiVMRuby
   
   VM.new.run [
     PUSH_STRING, "Hello World!\n",
@@ -19,7 +19,7 @@ The standard 'Hello world!', KoiVM style:
 And an old-school 'Blast off' example:
 
   require 'koi'
-  include KoiVM
+  include KoiVMRuby
   
   VM.new.run [
     PUSH_INT, 11,
@@ -39,6 +39,23 @@ And an old-school 'Blast off' example:
   ]
   
   #=> 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, Blast off!
+  
+=== Installation
+
+This VM is normally installed as part of Koi's default toolchain. However if you would like to install it on it's own you can do so by installing the gem like so:
+
+  gem install koi-vm-ruby
+  
+=== Usage
+
+  require 'rubygems'
+  require 'koi-vm-ruby'
+  
+  include KoiVMRuby
+  
+  vm = VM.new
+  
+  vm.run( bytecode )
   
 === Author & Credits
 

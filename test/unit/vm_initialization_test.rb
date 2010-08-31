@@ -2,7 +2,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', 'test_helper.rb
 
 class VmInitializationTest < Test::Unit::TestCase
 
-  include KoiVM
+  include KoiVMRuby
   
   test "VM.new without arguments should return default state" do
     vm = VM.new

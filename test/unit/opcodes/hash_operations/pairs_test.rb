@@ -2,7 +2,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'te
 
 class PairsTest < Test::Unit::TestCase
 
-  include KoiVM
+  include KoiVMRuby
   
   test "should return new hash containing all the pairs from the previous hash with numeric indices" do
     vm = VM.new

@@ -2,7 +2,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'te
 
 class PushIntTest < Test::Unit::TestCase
 
-  include KoiVM
+  include KoiVMRuby
   
   test "should put integer onto stack" do
     vm = VM.new

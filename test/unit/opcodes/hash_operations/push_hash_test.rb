@@ -2,7 +2,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'te
 
 class PushHashTest < Test::Unit::TestCase
 
-  include KoiVM
+  include KoiVMRuby
   
   test "should push hash onto stack" do
     vm = VM.new

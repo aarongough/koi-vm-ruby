@@ -2,7 +2,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'te
 
 class SetGlobalTest < Test::Unit::TestCase
 
-  include KoiVM
+  include KoiVMRuby
   
   test "should set global variable at index x" do
     vm = VM.new

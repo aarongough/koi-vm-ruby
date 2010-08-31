@@ -2,7 +2,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'te
 
 class InvertTest < Test::Unit::TestCase
 
-  include KoiVM
+  include KoiVMRuby
   
   test "should invert boolean value true -> false" do
     vm = VM.new

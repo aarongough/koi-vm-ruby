@@ -2,7 +2,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'te
 
 class EqualTest < Test::Unit::TestCase
 
-  include KoiVM
+  include KoiVMRuby
   
   test "should push bool value onto stack representing equality of topmost 2 stack items (true int)" do
     vm = VM.new
