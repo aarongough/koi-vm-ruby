@@ -2,7 +2,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'te
 
 class DivideTest < Test::Unit::TestCase
 
-  include KoiVM
+  include KoiVMRuby
   
   test "should divide top two integers on stack" do
     vm = VM.new

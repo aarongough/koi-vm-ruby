@@ -8,11 +8,11 @@ task :default => :test
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gemspec|
-    gemspec.name = "koi-vm"
-    gemspec.summary = "A prototype Virtual Machine written in Ruby"
-    gemspec.description = "A prototype Virtual Machine written in Ruby. Why would anyone write such a thing? Because it's fun, and it's a great learning tool."
+    gemspec.name = "koi-vm-ruby"
+    gemspec.summary = "A Koi Virtual Machine written in Ruby"
+    gemspec.description = "A Virtual Machine for the Koi programming language written in Ruby."
     gemspec.email = "aaron@aarongough.com"
-    gemspec.homepage = "https://github.com/aarongough/koi"
+    gemspec.homepage = "http://github.com/aarongough/koi-vm-ruby"
     gemspec.authors = ["Aaron Gough"]
     gemspec.rdoc_options << '--line-numbers' << '--inline-source'
     gemspec.extra_rdoc_files = ['README.rdoc', 'MIT-LICENSE']
@@ -22,7 +22,7 @@ rescue LoadError
 end
 
 
-desc 'Test Koi.'
+desc 'Test koi-vm-ruby.'
 Rake::TestTask.new(:test) do |t|
   t.libs << 'lib/*.rb'
   t.libs << 'test'
@@ -31,7 +31,7 @@ Rake::TestTask.new(:test) do |t|
 end
 
 
-desc 'Generate documentation for Koi.'
+desc 'Generate documentation for koi-vm-ruby.'
 Rake::RDocTask.new(:rdoc) do |rdoc|
   rdoc.rdoc_dir = 'rdoc'
   rdoc.title    = 'Koi'

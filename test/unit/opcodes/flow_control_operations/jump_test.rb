@@ -2,7 +2,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'te
 
 class JumpTest < Test::Unit::TestCase
 
-  include KoiVM
+  include KoiVMRuby
   
   test "should set instruction_pointer to 10" do
     vm = VM.new

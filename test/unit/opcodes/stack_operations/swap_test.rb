@@ -2,7 +2,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'te
 
 class SwapTest < Test::Unit::TestCase
 
-  include KoiVM
+  include KoiVMRuby
   
   test "should swap the two topmost items on the data stack" do
     vm = VM.new

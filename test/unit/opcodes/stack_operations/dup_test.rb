@@ -2,7 +2,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'te
 
 class DupTest < Test::Unit::TestCase
 
-  include KoiVM
+  include KoiVMRuby
   
   test "should duplicate the topmost item on the data stack" do
     vm = VM.new

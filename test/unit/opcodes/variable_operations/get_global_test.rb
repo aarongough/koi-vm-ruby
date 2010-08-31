@@ -2,7 +2,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'te
 
 class GetGlobalTest < Test::Unit::TestCase
 
-  include KoiVM
+  include KoiVMRuby
   
   test "should get global variable at index x and push onto stack" do
     vm = VM.new

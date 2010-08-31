@@ -2,7 +2,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'te
 
 class NumPairsTest < Test::Unit::TestCase
 
-  include KoiVM
+  include KoiVMRuby
   
   test "should return number of key-value pairs in hash" do
     vm = VM.new

@@ -2,7 +2,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'te
 
 class LengthTest < Test::Unit::TestCase
 
-  include KoiVM
+  include KoiVMRuby
   
   test "should return value of highest integer key + 1" do
     vm = VM.new

@@ -2,7 +2,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'te
 
 class CallTest < Test::Unit::TestCase
 
-  include KoiVM
+  include KoiVMRuby
   
   test "should pass execution to function and push return position on the return stack" do
     vm = VM.new

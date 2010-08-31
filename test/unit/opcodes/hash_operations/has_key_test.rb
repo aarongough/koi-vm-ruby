@@ -2,7 +2,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'te
 
 class HasKeyTest < Test::Unit::TestCase
 
-  include KoiVM
+  include KoiVMRuby
   
   test "should return true as hash has key" do
     vm = VM.new
