@@ -1,4 +1,4 @@
-require File.expand_path(File.join(File.dirname(__FILE__), '..', 'lib', 'koi.rb'))
+require File.expand_path(File.join(File.dirname(__FILE__), '..', 'lib', 'koi-vm-ruby.rb'))
 
 include KoiVMRuby
 
